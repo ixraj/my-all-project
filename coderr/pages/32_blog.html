@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Up an Ubuntu 20.04 server for deployment</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>Setting Up an Ubuntu 20.04 server for deployment</h1>
+        <p>When you first create a server from any provider like Linode, DigitalOcean, etc., you will have to secure it by executing several commands. This post will explain what those commands are and why you need to run all those commands to start using your server securely.</p>
+        <p>I will break down the procedure we will perform into 5 simple steps:</p>
+        <ol>
+            <li>Creating a VPS</li>
+            <li>Initial Login </li>
+            <li>Creating a non-root user</li>
+            <li>Firewall setup</li>
+        </ol>
+        <p>Let's get started</p>
+
+        <h2>Creating a VPS</h2>
+        <p>For creating a VPS, I will choose DigitalOcean. I have been DigitalOcean for quite a while now, and it never disappointed me. There are other service providers like Linode, Vultr, etc.</p>
+        <p>Once you create an account on DigitalOcean and log in, DigitalOcean will present you with this screen. Click on create and then on droplets:</p>
+        <img class="blog_32" src="../assets/images/32_step_0.webp" alt="Step-0">
+        <p>DigitalOcean will present you with the following screen, where you can choose the droplet, Operating system, and plan size. I will choose the options as marked in red below:</p>
+        <img class="blog_32" src="../assets/images/32_step_1.webp" alt="Step-1">
+        <p>Choose a region. Ideally, this has to be the region closest to your users. This is the physical location where the server will be located:</p>
+        <img class="blog_32" src="../assets/images/32_step_2.webp" alt="Step-2">
+        <p>Finally, choose a password and click create droplet:</p>
+        <img class="blog_32" src="../assets/images/32_step_3.webp" alt="Step-3">
+        <p>You will see processing like this</p>
+        <img class="blog_32" src="../assets/images/32_step_4.webp" alt="Step-4">
+        <p>and finally, we will get a public IP address</p>
+        <img class="blog_32" src="../assets/images/32_step_5.webp" alt="Step-5">
+        <p>We will use this public IP address to login into our server</p>
+
+        <h3>Initial Login</h3>
+        <p>The very first step to start using a server is to log in to it. A web server is just like a computer on the web. We cannot connect a physical keyboard and mouse to it. So how do we use it?  We will use an SSH Client to get access to the server's terminal (this remote computer), and once we have access to the terminal, we can start executing commands on this server.</p>
+        <p>To log in to our server, we need to know its public IP address, just like you need to know the address of a place before visiting it. </p>
+        <p>Execute the following command on the PowerShell or terminal</p>
+        <pre>ssh root@your_server_ip</pre>
+        <p>I will type this:</p>
+        <pre>ssh root@165.232.177.116</pre>
+        <p>Enter the password provided by your service provider. We have created a password in DigitalOcean, which we will enter here. Once you enter the password when prompted, you will be logged in as root.</p>
+        <img class="blog_32" src="../assets/images/32_step6.webp" alt="Step-6">
+        <p>The root user is a user having the highest privileges on the server. This means that a root user can do anything and everything on the server. This is why it is strongly discouraged to use a root account as it might accidentally delete files/uninstall programs/install programs etc. Hence we will create a user who will have restricted permissions on the server for day-to-day use.</p>
+
+        <h3>Creating a non-root user</h3>
+        <p>We will now create a non-root user account that will have restricted access to the machine. This is ideal if you want to have people working for you on the server without doing everything on the server. <br>
+        Execute the following command:</p>
+        <pre>adduser harry</pre>
+        <p>You will be asked to enter some information and a password. Choose a strong password to avoid getting hacked!</p>
+        <img class="blog_32" src="../assets/images/32_step7.webp" alt="Step-7">
+        <p>We have successfully created an account with basic access. We want this user to be able to elevate to root access when required. This will be useful when you want to use your server and sometimes do something which requires root access. <br>
+        This will save you the time to log out and log back in as the root user. <br>
+        Execute the following command on the server:</p>
+        <pre>usermod -aG sudo harry</pre>
+
+        <h3>Firewall setup</h3>
+        <p>Our server is public, and we want to protect it from external unwanted connections. We want only selected services exposed to the public on our server. <br>
+        We will set up the UFW firewall on our Ubuntu 20.04 server and allow OpenSSH, which allows us to connect to our server. <br>
+        Execute the following command to allow OpenSSH:</p>
+        <pre>ufw allow OpenSSH</pre>
+        <p>Enable the firewall by executing the following command:</p>
+        <pre>ufw enable</pre>
+        <img class="blog_32" src="../assets/images/32_step8.webp" alt="Step-8">
+        <p>The firewall will now block all the connections except SSH <br>
+        You have successfully created a new user. Try to log in through this user in a new terminal tab and verify everything works before logging out from the current session.</p>
+        <img class="blog_32" src="../assets/images/32_step9.webp" alt="Step-9">
+        <p>You can type the following command to elevate to the root access as and when required.</p>
+        <pre>sudo su</pre>
+        <p>To go back to the existing user, execute the following command:</p>
+        <pre>exit</pre>
+        <img class="blog_32" src="../assets/images/32_step10.webp" alt="Step-10">
+        <p>I hope this guide was helpful. Happy Coding!</p>
+    </section>
+</body>
+</html>

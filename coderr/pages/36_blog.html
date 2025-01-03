@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Solved] gcc: The term 'gcc' is not recognized as the name of a cmdlet, function...</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>[Solved] gcc: The term 'gcc' is not recognized as the name of a cmdlet, function...</h1>
+        <p>If you've ever seen the error message <i>'The term gcc is not recognized...'</i> in VS Code or another IDE/Terminal, you know how confusing and disruptive it can be. This common problem can stop you in your programming tracks, but the solution is often simpler than it seems.</p>
+        <pre>
+gcc : The term 'gcc' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ gcc
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (gcc:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException           
+</pre>
+        <p>The error "'gcc' is not recognized as the name of a cmdlet, function, script file, or operable program.” occurs for two primary reasons:</p>
+        <ol>
+            <li><b>Reason 1:</b> Absence of the gcc compiler on your computer. The solution is to simply install it</li>
+            <li><b>Reason 2:</b> The Compiler path is not included in your system's 'PATH' environment variable</li>
+        </ol>
+        <p>In previous Windows versions, the error looked like this: <i>"'gcc' is not recognized as an internal or external command, operable program, or batch file."</i></p>
+        <p>This straightforward guide will provide the solutions to address this problem on the Windows platform.</p>
+
+        <h2>Solution 1: Install MinGW Compiler:</h2>
+        <p>If you do not have MinGW Compiler installed in your system, you need to install it from <a href="https://sourceforge.net/projects/mingw/">here</a>. MinGW is a native Windows port of the GNU Compiler Collection (GCC), with freely distributable import libraries and header files for building native Windows applications.</p>
+        <p>We have already covered the installation of MinGW in another blog. <a href="#incomplete"></a> Check this blog out for installing MinGW in your system.</p> <!-- incomplate -->
+        <h2>Solution 2: Set up the environment variables:</h2>
+        <p>After installing MinGW, along with the gcc and g++ compiler packages, you must set the PATH variable on your computer.</p>
+        <ol>
+            <li>Click on your search icon beside the windows icon and type "Environment Variables"</li>
+            <img class="blog_36" src="../assets/images/36_environment.png" alt="image-1">
+            <li>Click on the first option "Edit the system Environment Variables". A System Properties window will open. Click on "Environment Variables"</li>
+            <img class="blog_36" src="../assets/images/36_system-properties.png" alt="image-2">
+            <li>Select Path and click on "Edit"</li>
+            <img class="blog_36" src="../assets/images/36_path-edit.png" alt="image-3">
+            <li>Click "New" and add the location of the MinGW installation. </li>
+            <img class="blog_36" src="../assets/images/36_add-new-path.png" alt="image-4">
+        </ol>
+        <p>By default, the MinGW installer installs all the files to the "C:\MinGW\bin" folder. If you have changed the installation directory while installing it, you need to give the location of that folder. This is how it will look:</p>
+        <img class="blog_36" src="../assets/images/36_enviro-mingw.png" alt="image-5">
+        <p>Click ok to close all the dialogue boxes.</p>
+        
+        <h2>Step 4: Test gcc and g++ compiler:</h2>
+        <p>To test if the gcc compiler or the g++ compiler is installed correctly, open a <br>
+        cmd/PowerShell/terminal window and type the following command. <br>
+        For gcc compiler:</p>
+        <pre>gcc –v</pre>
+        <p>  For g++ compiler: </p>
+        <pre>g++ -v</pre>
+        <img class="blog_36" src="../assets/images/36_gccdone.png" alt="image-6">
+
+        <h2>Conclusion:</h2>
+        <p>Resolving the <i>"The term gcc is not recognized as the name of..."</i> issue follows a simple procedure once you're familiar with the necessary steps. By verifying the proper installation and configuration of MinGW, you'll ensure a seamless coding experience. Hope that helps and happy coding 🙂</p>
+    </section>
+</body>
+</html>

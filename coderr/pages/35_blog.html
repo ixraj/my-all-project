@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Solved] gcc.exe error - No such file or directory gcc.exe: fatal error: no input files compilation terminated.</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>[Solved] gcc.exe error - No such file or directory gcc.exe: fatal error: no input files compilation terminated.</h1>
+        <p>One of my friends asked me how to solve this error:</p>
+        <pre>gcc.exe: error: this.c: No such file or directory
+gcc.exe: fatal error: no input files
+compilation terminated.</pre>
+        <p>This error is pretty much saying that you have the gcc compiler installed and working on your computer, but you don't have any file named this.c on this directory.</p>
+        <p>The presence of this error essentially means that you are in the wrong directory or you are misspelling your filename.</p>
+
+        <h2>How to solve no such file or directory error in gcc</h2>
+        <p>To get into the correct directory, all we need to do is use the cd command. Alternatively, you can navigate through windows explorer to get into the correct directory by following the steps below:</p>
+        <p><b>Step 1:</b> Go to the location of the file you want to compile using gcc and press shift and right-click at the same time.</p>
+        <p>You will now be offered a navigation menu like this:</p>
+        <img class="blog_35" src="../assets/images/35_base64.webp" alt="image-1">
+        <p><b>Step 2:</b> Click on the "Open PowerShell window here" or "Open in Terminal" option, and you will find the PowerShell/Terminal window opened inside that directory</p>
+        <img class="blog_35" src="../assets/images/35_base64_Jrs9hoX.webp" alt="image-2">
+        <p><b>Step 3:</b> Type gcc &lt;filename.c&gt; <br> 
+        Since my filename is this.c I will type:</p>
+        <pre>gcc this.c</pre>
+        <p><b>Step 4:</b> Type a.exe to execute your compiled program. Your program will compile and run, as shown below:</p>
+        <img class="blog_35" src="../assets/images/35_base64_DwlX2gt.webp" alt="image-3">
+
+        <h2>Conclusion</h2>
+        <p>Hence we saw that solving the "No such file or directory" error in GCC doesn't have to be a perplexing task. As we've seen, it's often a simple matter of navigating to the correct directory or ensuring the correct spelling of the file name.</p>
+        <p>With these easy-to-follow steps, you'll be back to coding in no time. I hope this post solved your issue. Let me know how the problem in your case occurred in the comments below. Happy coding!</p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python CheatSheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+  </head>
+  <body>
+    <section>
+      <h1>Python CheatSheet</h1>
+      
+      <h2>Basics</h2>
+      <p>Basic syntax from the python programming language</p>
+      
+      <h3>Showing Output To User</h3>
+      <p>The print function is used to display or print output as follows</p>
+      <pre>print("Content that you wanna print on screen")</pre>
+      <p>we can display the content present in object using prit function as follows:-</p>
+      <pre>var1 = "Shruti"
+print("Hi my name is: ",var1)</pre>
+
+      <h3>Taking Input From the User</h3>
+      <p>The input function is used to take input as string or character from the user as follows:</p>
+      <pre>var1 = input("Enter your name: ")
+print("My name is: ", var1)</pre>
+      <p>To take input in form of other datatypes we need to typecaste them as follows:-</p>
+      <p>To take input as an integer:-</p>
+      <pre>var1=int(input("enter the integer value"))
+print(var1)</pre>
+      <p>To take input as an float:-</p>
+      <pre>var1=float(input("enter the float value"))
+print(var1)</pre>
+
+      <h3>range Function</h3>
+      <p>range function returns a sequence of numbers, eg, numbers starting from 0 to n-1 for range(0, n)</p>
+      <pre>range(int_start_value,int_stop_value,int_step_value)</pre>
+      <p>Here the start value and step value are by default 1 if not mentioned by the programmer. but int_stop_value is the compulsory parameter in range function <br> example- </p>
+      <p>Display all even numbers between 1 to 100</p>
+      <pre>for i in range(0,101,2):
+       print(i)</pre>
+
+      <h2>Comments</h2>
+      <p>Comments are used to make the code more understandable for programmers, and they are not executed by compiler or interpreter.</p>
+
+      <h3>Single line comment</h3>
+      <pre># This is a single line comment</pre>
+
+      <h3>Multi-line comment</h3>
+      <pre>'''This is a
+multi-line
+comment'''</pre>
+
+      <h2>Escape Sequence</h2>
+      <p>An escape sequence is a sequence of characters; it doesn't represent itself (but is translated into another character) when used inside string literal or character. Some of the escape sequence characters are as follows:</p>
+
+      <h3>Newline</h3>
+      <p>Newline Character</p>
+      <pre>print("\n")</pre>
+
+      <h3>Backslash</h3>
+      <p>It adds a backslash</p>
+      <pre>print("\\")</pre>
+
+      <h3>Single Quote</h3>
+      <p>It adds a single quotation mark</p>
+      <pre>print("\'")</pre>
+
+      <h3>Tab</h3>
+      <p>It gives a tab space</p>
+      <pre>print("\t")</pre>
+
+      <h3>Backspace</h3>
+      <p>It adds a backspace</p>
+      <pre>print("\b")</pre>
+
+      <h3>Octal value</h3>
+      <p>It represents the value of an octal number</p>
+      <pre>print("\ooo")</pre>
+
+      <h3>Hex value</h3>
+      <p>It represents the value of a hex number</p>
+      <pre>print("\xhh")</pre>
+
+      <h3>Carriage Return</h3>
+      <p>Carriage return or \r will just work as you have shifted your cursor to the beginning of the string or line.</p>
+      <pre>pint("\r")</pre>
+
+      <h2>Strings</h2>
+      <p>Python string is a sequence of characters, and each character can be individually accessed using its index.</p>
+
+      <h3>String</h3>
+      <p>You can create Strings by enclosing text in both forms of quotes - single quotes or double quotes.</p>
+      <pre>variable_name = "String Data"</pre>
+      <p>example</p>
+      <pre>str="Shruti"
+print("string is ",str)</pre>
+
+      <h3>Indexing</h3>
+      <p>The position of every character placed in the string starts from 0th position ans step by step it ends at length-1 position</p>
+
+      <h3>Slicing</h3>
+      <p>Slicing refers to obtaining a sub-string from the given string. The following code will include index 1, 2, 3, and 4 for the variable named <b>var_name</b>
+        <br> Slicing of the string can be obtained by the following syntax-
+      </p>
+      <pre>string_var[int_start_value:int_stop_value:int_step_value]</pre>
+      <pre>var_name[1 : 5]</pre>
+      <p>here start and step value are considered 0 and 1 respectively if not mentioned by the programmmer</p>
+
+      <h3>isalnum() method</h3>
+      <p>Returns True if all the characters in the string are alphanumeric, else False</p>
+      <pre>string_variable.isalnum()</pre>
+
+      <h3>isalpha() method</h3>
+      <p>Returns True if all the characters in the string are alphabets</p>
+      <pre>string_variable.isalpha()</pre>
+
+      <h3>isdecimal() method</h3>
+      <p>Returns True if all the characters in the string are decimals</p>
+      <pre>string_variable.isdecimal()</pre>
+
+      <h3>isdigit() method</h3>
+      <p>Returns True if all the characters in the string are digits</p>
+      <pre>string_variable.isdigit()</pre>
+
+      <h3>islower() method</h3>
+      <p>Returns True if all characters in the string are lower case</p>
+      <pre>string_variable.islower()</pre>
+
+      <h3>isspace() method</h3>
+      <p>Returns True if all characters in the string are whitespaces</p>
+      <pre>string_variable.isspace()</pre>
+
+      <h3>isupper() method</h3>
+      <p>Returns True if all characters in the string are upper case</p>
+      <pre>string_variable.isupper()</pre>
+
+      <h3>lower() method</h3>
+      <p>Converts a string into lower case equivalent</p>
+      <pre>string_variable.lower()</pre>
+
+      <h3>upper() method</h3>
+      <p>Converts a string into upper case equivalent</p>
+      <pre>string_variable.upper()</pre>
+
+      <h3>strip() method</h3>
+      <p>It removes leading and trailing spaces in the string</p>
+      <pre>string_variable.strip()</pre>
+      
+      <h2>List</h2>
+      <p>A List in Python represents a list of comma-separated values of any data type between square brackets.</p>
+      <pre>var_name = [element1, element2, ...]</pre>
+      <p>These elements can be of different datatypes</p>
+
+      <h3>Indexing</h3>
+      <p>The position of every elements placed in the string starts from 0th position ans step by step it ends at length-1 position <br> List is ordered,indexed,mutable and most flexible and dynamic collection of elements in python. </p>
+
+      <h3>Empty List</h3>
+      <p>This method allows you to create an empty list</p>
+      <pre>my_list = []</pre>
+
+      <h3>index method</h3>
+      <p>Returns the index of the first element with the specified value</p>
+      <pre>list.index(element)</pre>
+
+      <h3>append method</h3>
+      <p>Adds an element at the end of the list</p>
+      <pre>list.append(element)</pre>
+
+      <h3>extend method</h3>
+      <p>Add the elements of a given list (or any iterable) to the end of the current list</p>
+      <pre>list.extend(iterable)</pre>
+
+      <h3>insert method</h3>
+      <p>Adds an element at the specified position</p>
+      <pre>list.insert(position, element)</pre>
+
+      <h3>pop method</h3>
+      <p>Removes the element at the specified position and returns it</p>
+      <pre>list.pop(position)</pre>
+
+      <h3>remove method</h3>
+      <p>The remove() method removes the first occurrence of a given item from the list</p>
+      <pre>list.remove(element)</pre>
+
+      <h3>clear method</h3>
+      <p>Removes all the elements from the list</p>
+      <pre>list.clear()</pre>
+
+      <h3>count method</h3>
+      <p>Returns the number of elements with the specified value</p>
+      <pre>list.count(value)</pre>
+
+      <h3>reverse method</h3>
+      <p>Reverses the order of the list</p>
+      <pre>list.reverse()</pre>
+
+      <h3>sort method</h3>
+      <p>Sorts the list</p>
+      <pre>list.sort(reverse=True|False)</pre>
+
+      <h2>Tuples</h2>
+      <p>Tuples are represented as comma-separated values of any data type within parentheses.</p>
+
+      <h3>Tuple Creation</h3>
+      <pre>variable_name = (element1, element2, ...)</pre>
+      <p>These elements can be of different datatypes</p>
+
+      <h3>Indexing</h3>
+      <p>The position of every elements placed in the string starts from 0th position ans step by step it ends at length-1 position <br>Tuples are ordered,indexing,immutable and most secured collection of elements <br> Lets talk about some of the tuple methods: </p>
+
+      <h3>count method</h3>
+      <p>It returns the number of times a specified value occurs in a tuple</p>
+      <pre>tuple.count(value)</pre>
+
+      <h3>index method</h3>
+      <p>It searches the tuple for a specified value and returns the position.</p>
+      <pre>tuple.index(value)</pre>
+
+      <h2>Sets</h2>
+      <p>A set is a collection of multiple values which is both unordered and unindexed. It is written in curly brackets.</p>
+
+      <h3>Set Creation: Way 1</h3>
+      <pre>var_name = {element1, element2, ...}</pre>
+
+      <h3>Set Creation: Way 2</h3>
+      <pre>var_name = set([element1, element2, ...])</pre>
+      <p>Set is unordered,immutable,non-indexed type of collection.Duplicate elements are not allowed in sets.</p>
+
+      <h3>Set Methods</h3>
+      <p>Lets talk about some of the methods of sets:</p>
+
+      <h3>add() method</h3>
+      <p>Adds an element to a set</p>
+      <pre>set.add(element)</pre>
+
+      <h3>clear() method</h3>
+      <p>Remove all elements from a set</p>
+      <pre>set.clear()</pre>
+
+      <h3>discard() method</h3>
+      <p>Removes the specified item from the set</p>
+      <pre>set.discard(value)</pre>
+
+      <h3>intersection() method</h3>
+      <p>Returns intersection of two or more sets</p>
+      <pre>set.intersection(set1, set2 ... etc)</pre>
+
+      <h3>issubset() method</h3>
+      <p>Checks if a set is a subset of another set</p>
+      <pre>set.issubset(set)</pre>
+
+      <h3>pop() method</h3>
+      <p>Removes an element from the set</p>
+      <pre>set.pop()</pre>
+
+      <h3>remove() method</h3>
+      <p>Removes the specified element from the set</p>
+      <pre>set.remove(item)</pre>
+
+      <h3>union() method</h3>
+      <p>Returns the union of two or more sets</p>
+      <pre>set.union(set1, set2...)</pre>
+
+      <h2>Dictionaries</h2>
+      <p>The dictionary is an unordered set of comma-separated key:value pairs, within {}, with the requirement that within a dictionary, no two keys can be the same.</p>
+
+      <h3>Dictionary</h3>
+      <pre> &lt;dictionary-name&gt; = { &lt;key&gt;: value, &lt;key&gt;: value ...}</pre>
+      <p>Dictionary is ordered and mutable collection of elements.Dictionary allows duplicate values but not duplicate keys.</p>
+
+      <h3>Empty Dictionary</h3>
+      <p>By putting two curly braces, you can create a blank dictionary</p>
+      <pre>mydict={}</pre>
+
+      <h3>Adding Element to a dictionary</h3>
+      <p>By this method, one can add new elements to the dictionary</p>
+      <pre>&lt;dictionary&gt;[&lt;key&gt;] = &lt;value&gt;</pre>
+
+      <h3>Updating Element in a dictionary</h3>
+      <p>If a specified key already exists, then its value will get updated</p>
+      <pre>&lt;dictionary&gt;[&lt;key&gt;] = &lt;value&gt;</pre>
+
+      <h3>Deleting an element from a dictionary</h3>
+      <p>del keyword is used to delete a specified key:value pair from the dictionary as follows:</p>
+      <pre>del &lt;dictionary&gt;[&lt;key&gt;]</pre>
+
+      <h3>Dictionary Functions & Methods</h3>
+      <p>Below are some of the methods of dictionaries</p>
+
+      <h3>len() method</h3>
+      <p>It returns the length of the dictionary, i.e., the count of elements (key: value pairs) in the dictionary</p>
+      <pre>len(dictionary)</pre>
+
+      <h3>clear() method</h3>
+      <p>Removes all the elements from the dictionary</p>
+      <pre>dictionary.clear()</pre>
+
+      <h3>get() method</h3>
+      <p>Returns the value of the specified key</p>
+      <pre>dictionary.get(keyname)</pre>
+
+      <h3>items() method</h3>
+      <p>Returns a list containing a tuple for each key-value pair</p>
+      <pre>dictionary.items()</pre>
+      
+      <h3>keys() method</h3>
+      <p>Returns a list containing the dictionary's keys</p>
+      <pre>dictionary.keys()</pre>
+
+      <h3>values() method</h3>
+      <p>Returns a list of all the values in the dictionary</p>
+      <pre>dictionary.values()</pre>
+
+      <h3>update() method</h3>
+      <p>Updates the dictionary with the specified key-value pairs</p>
+      <pre>dictionary.update(iterable)</pre>
+
+      <h2>Indentation</h2>
+      <p>In Python, indentation means the code is written with some spaces or tabs into many different blocks of code to indent it so that the interpreter can easily execute the Python code. <br>Indentation is applied on conditional statements and loop control statements. Indent specifies the block of code that is to be executed depending on the conditions. </p>
+
+      <h2>Conditional Statements</h2>
+      <p>The if, elif and else statements are the conditional statements in Python, and these implement selection constructs (decision constructs).</p>
+
+      <h3>if Statement</h3>
+      <pre>if(conditional expression):
+    statements</pre>
+
+      <h3>if-else Statement</h3>
+      <pre>if(conditional expression):
+    statements
+else:
+    statements</pre>
+
+      <h3>if-elif Statement</h3>
+      <pre>if (conditional expression):
+    statements
+elif (conditional expression):
+    statements
+else:
+    statements</pre>
+
+      <h3>Nested if-else Statement</h3>
+      <pre>if (conditional expression):
+    if (conditional expression):
+        statements
+    else:
+        statements
+else:
+    statements</pre>
+
+      <p>example-</p>
+      <pre>a=15
+b=20
+c=12
+if(a>b and a>c):
+      print(a,"is greatest")
+elif(b>c and b>a):
+      print(b," is greatest")
+else:
+    print(c,"is greatest")</pre>
+
+      <h2>Loops in Python</h2>
+      <p>A loop or iteration statement repeatedly executes a statement, known as the loop body, until the controlling expression is false (0).</p>
+
+      <h3>For Loop</h3>
+      <p>The for loop of Python is designed to process the items of any sequence, such as a list or a string, one by one.</p>
+      <pre>for &lt;variable&gt; in &lt;sequence&gt;:
+    statements_to_repeat</pre>
+      <p>example-</p>
+      <pre>for i in range(1,101,1):
+           print(i)</pre>
+
+      <h3>While Loop</h3>
+      <p>A while loop is a conditional loop that will repeat the instructions within itself as long as a conditional remains true.</p>
+      <pre>while &lt;logical-expression&gl;:
+    loop-body</pre>
+      <p>example-</p>
+      <pre>i=1
+while(i<=100):
+        print(i)
+        i=i+1</pre>
+
+      <h3>Break Statement</h3>
+      <p>The break statement enables a program to skip over a part of the code. A break statement terminates the very loop it lies within.
+      <pre>for &lt;var&gt; in &lt;sequence&gt;:
+    statement1
+    if &lt;condition&gt;:
+        break
+    statement2
+statement_after_loop</pre>
+
+      <p>example-</p>
+      <pre>for i in range(1,101,1):
+    print(i ,end=" ")
+    if(i==50):
+        break
+    else:
+        print("Mississippi")
+print("Thank you")</pre>
+
+      <h3>Continue Statement</h3>
+      <p>The continue statement skips the rest of the loop statements and causes the next iteration to occur.</p>
+      <pre>for &lt;var&gl; in &lt;sequence&gl;:
+    statement1
+    if &lt;condition&gl; :
+        continue
+    statement2
+    statement3
+    statement4</pre>
+    
+      <p>example-</p>
+      <pre>for i in [2,3,4,6,8,0]:
+    if (i%2!=0):
+        continue
+    print(i)</pre>
+
+      <h2>Functions</h2>
+      <p>A function is a block of code that performs a specific task. You can pass parameters into a function. It helps us to make our code more organized and manageable.</p>
+
+      <h3>Function Definition</h3>
+      <pre>def my_function():
+          #statements</pre>
+      <p>def keyword is used before defining the function. </p>
+
+      <h3>Function Call</h3>
+      <pre>my_function()</pre>
+      <p>Whenever we need that block of code in our program simply call that function name whenever neeeded. If parameters are passed during defing the function we have to pass the parameters while calling that function <br> example- </p>
+      <pre>def add():       #function defination
+        a=10
+        b=20
+       print(a+b)
+add()            #function call</pre>
+
+      <h3>Return statement in Python function</h3>
+      <p>The function return statement return the specified value or data item to the caller.</p>
+      <pre>return [value/expression]</pre>
+
+      <h3>Arguments in python function</h3>
+      <p>Arguments are the values passed inside the parenthesis of the function while defining as well as while calling.</p>
+      <pre>def my_function(arg1,arg2,arg3....argn):
+          #statements
+my_function(arg1,arg2,arg3....argn)</pre>
+      <p>example-</p>
+      <pre>def add(a,b):
+      return a+b
+x=add(7,8)
+print(x)</pre>
+
+      <h2>File Handling</h2>
+      <p>File handling refers to reading or writing data from files. Python provides some functions that allow us to manipulate data in the files.</p>
+
+      <h3>open() function</h3>
+      <pre>var_name = open("file name", " mode")</pre>
+
+      <h3>modes-</h3>
+      <ol>
+        <li><b>r</b> - to read the content from file</li>
+        <li><b>w</b> - to write the content into file</li>
+        <li><b>a</b> - to append the existing content into file</li>
+        <li><b>r+</b>: To read and write data into the file. The previous data in the file will be overridden.</li>
+        <li><b>w+</b>: To write and read data. It will override existing data.</li>
+        <li><b>a+</b>: To append and read data from the file. It won't override existing data.</li>
+      </ol>
+
+      <h3>close() function</h3>
+      <pre>var_name.close()</pre>
+
+      <h3>read () function</h3>
+      <p>The read functions contains different methods, read(),readline() and readlines()</p>
+      <pre>read() #return one big string</pre>
+      <p>It returns a list of lines</p>
+      <pre>readlines() #returns a list</pre>
+      <p>It returns one line at a time</p>
+      <pre>readline #returns one line at a time</pre>
+    
+      <h3>write function</h3>
+      <p>This function writes a sequence of strings to the file.</p>
+      <pre>write() #Used to write a fixed sequence of characters to a file</pre>
+      <p>It is used to write a list of strings</p>
+      <pre>writelines()</pre>
+    
+      <h2>Exception Handling</h2>
+      <p>An exception is an unusual condition that results in an interruption in the flow of a program.</p>
+
+      <h3>try and except</h3>
+      <p>A basic try-catch block in python. When the try block throws an error, the control goes to the except block.</p>
+      <pre>try:
+    [Statement body block]
+    raise Exception()
+except Exceptionname:
+    [Error processing block]</pre>
+
+      <h3>else</h3>
+      <p>The else block is executed if the try block have not raise any exception and code had been running successfully</p>
+      <pre>try:
+     #statements
+except:
+     #statements
+else:
+      #statements</pre>
+
+      <h3>finally</h3>
+      <p>Finally block will be executed even if try block of code has been running successsfully or except block of code is been executed. finally block of code will be executed compulsory</p>
+
+      <h2>Object Oriented Programming (OOPS)</h2>
+      <p>It is a programming approach that primarily focuses on using objects and classes. The objects can be any real-world entities.</p>
+
+      <h3>class</h3>
+      <p>The syntax for writing a class in python</p>
+      <pre>class class_name:
+    pass #statements</pre>
+
+      <h3>Creating an object</h3>
+      <p>Instantiating an object can be done as follows:</p>
+      <pre>&lt;object-name&gl; = &lt;class-name&gl;(&lt;arguments&gl;)</pre>
+
+      <h3>self parameter</h3>
+      <p>The self parameter is the first parameter of any function present in the class. It can be of different name but this parameter is must while defining any function into class as it is used to access other data members of the clas</p>
+
+      <h3>class with a constructor</h3>
+      <p>Constructor is the special function of the class which is used to initialize the objects. The syntax for writing a class with the constructor in python</p>
+      <pre>class Coderrr:
+
+    # Default constructor
+    def __init__(self):
+        self.name = "Coderrr"
+
+    # A method for printing data members
+    def print_me(self):
+        print(self.name)</pre>
+
+
+      <h3>Inheritance in python</h3>
+      <p>By using inheritance, we can create a class which uses all the properties and behavior of another class. The new class is known as a derived class or child class, and the one whose properties are acquired is known as a base class or parent class. <br> It provides the re-usability of the code. </p>
+      <pre>class Base_class:
+       pass
+class derived_class(Base_class):
+        pass</pre>
+
+      <h3>Types of inheritance-</h3>
+      <ul>
+        <li>Single inheritance</li>
+        <li>Multiple inheritance</li>
+        <li>Multilevel inheritance</li>
+        <li>Hierarchical inheritance</li>
+      </ul>
+
+      <h3>filter function</h3>
+      <p>The filter function allows you to process an iterable and extract those items that satisfy a given condition</p>
+      <pre>filter(function, iterable)</pre>
+
+      <h3>issubclass function</h3>
+      <p>Used to find whether a class is a subclass of a given class or not as follows</p>
+      <pre>issubclass(obj, classinfo) # returns true if obj is a subclass of classinfo</pre>
+
+      <h2>Iterators and Generators</h2>
+      <p>Here are some of the advanced topics of the Python programming language like iterators and generators</p>
+
+      <h3>Iterator</h3>
+      <p>Used to create an iterator over an iterable</p>
+      <pre>iter_list = iter(['Harry', 'Aakash', 'Rohan']) 
+print(next(iter_list)) 
+print(next(iter_list)) 
+print(next(iter_list))</pre>
+
+      <h3>Generator</h3>
+      <p>Used to generate values on the fly</p>
+      <pre># A simple generator function
+def my_gen():
+    n = 1
+    print('This is printed first')
+    # Generator function contains yield statements
+    yield n
+    n += 1
+    print('This is printed second')
+    yield n
+    n += 1
+    print('This is printed at last')
+    yield n</pre>
+
+      <h2>Decorators</h2>
+      <p>Decorators are used to modifying the behavior of a function or a class. They are usually called before the definition of a function you want to decorate.</p>
+
+      <h3>property Decorator (getter)</h3>
+      <pre>@property
+def name(self):
+    return self.__name</pre>
+
+      <h3>setter Decorator</h3>
+      <p>It is used to set the property 'name'</p>
+      <pre>@name.setter
+def name(self, value):
+    self.__name=value</pre>
+
+      <h3>deleter Decorator</h3>
+      <p>It is used to delete the property 'name'</p>
+      <pre>@name.deleter #property-name.deleter decorator
+def name(self, value):
+    print('Deleting..')
+    del self.__name</pre>
+      <a href="../assets/pdf/python cheatsheet.pdf" class="pdf-download" target="_blank" download="python cheatsheet.pdf">Download this Cheatsheet</a>
+    </section>
+  </body>
+</html>

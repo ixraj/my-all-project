@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to install LEMP stack (Linux, Nginx, MySQL, PHP) on Ubuntu 20.04</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>How to install LEMP stack (Linux, Nginx, MySQL, PHP) on Ubuntu 20.04</h1>
+        <p>In this tutorial, we will install the LEMP stack on the ubuntu 20 based server. LEMP consists of Linux, Nginx(pronounced as Engine-x), MySQL for database, and PHP as a backend programming language. Together you can use this combination to host a set of high-performing sites on a single server. I will assume that you have finished the initial server setup as described <a href="../pages/32_blog.html">here</a>  on your ubuntu server before installing the LEMP stack on Ubuntu 20.04.</p>
+        <p>If you are already using some other web server like apache2, it is recommended that you uninstall it or rebuild your server from scratch using the console provided by your hosting provider. DigitalOcean gives a convenient way to achieve this in its dashboard.</p>
+        <img class="blog_31" src="../assets/images/31_2.webp" alt="image-1">
+        <p>Let's install the LEMP stack now. Follow the steps below:</p>
+
+        <h2>Step 1 - Update the server's package index</h2>
+        <p>Update the server's package index by executing the command below:</p>
+        <pre>sudo apt update</pre>
+        <img class="blog_31" src="../assets/images/31_1.webp" alt="image-2">
+
+        <h2>Step 2 - Install Nginx</h2>
+        <p>Install Nginx using the command below:</p>
+        <pre>sudo apt install nginx</pre>
+
+        <h2>Step 3 - Allow Nginx through the firewall</h2>
+        <p>Allow Nginx through the firewall using the command below:</p>
+        <pre>sudo ufw app list
+sudo ufw allow 'Nginx Full'</pre>
+        <img class="blog_31" src="../assets/images/31_3.webp" alt="image-3">
+        <p>You can now go to your server's IP address to check if Nginx is installed successfully. You should see a page like this:</p>
+        <img class="blog_31" src="../assets/images/31_5.webp" alt="image-4">
+
+        <h2>Step 4 - Installing MySQL</h2>
+        <p>Let's install MySQL using the command below:</p>
+        <pre>sudo apt install mysql-server</pre>
+        <p>This command will install MySQL, and you will be able to see the console by entering "sudo mysql" in the terminal.</p>
+        <pre>sudo mysql</pre>
+
+        <h2>Step 5 - Installing PHP</h2>
+        <p>The last component in the LEMP stack is PHP. Let's install it using the command below:</p>
+        <img class="blog_31" src="../assets/images/31_6.webp" alt="image-5">
+        <p>If you want to host a PHP website, you will have to copy your files to '/var/www/html' and modify the file located at '/etc/nginx/sites-available/default' to look something like this:</p>
+        <img class="blog_31" src="../assets/images/31_7.webp" alt="image-6">
+        <p>these are the additional lines added inside the "location ~ \.php$ {" block</p>
+        <pre>include fastcgi_params;
+fastcgi_index index.php;
+fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;</pre>
+        <p>Here is a sample index.php site for you to try out:</p>
+        <pre>&lt;?php
+phpinfo();
+?&gt;</pre>
+        <p>Once you visit the IP of your droplet, you will see a page like this:</p>
+        <img class="blog_31" src="../assets/images/31_8.webp" alt="image-7">
+        <p>You will now be able to use PHP with Nginx. Happy coding!</p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Generate Random Numbers in C Language</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>How to Generate Random Numbers in C Language</h1>
+        <p>In the C programming language, random numbers can be generated primarily using two functions like <code>rand()</code> and <code>srand()</code>.</p>
+
+        <h2>Method 1: Using the rand() Function</h2>
+        <p>The <code>rand()</code> function is used to generate random numbers in C. It returns a random integer value that can further be scaled according to the range required.</p>
+        <pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+          
+int main() {
+    int random_number = rand();
+    printf("Random Number: %d\n", random_number);
+    return 0;
+}
+</pre>
+        <p><b>Output:</b> The value of the random number may not vary on each execution since the <code>rand()</code> function generates a <a href="https://en.wikipedia.org/wiki/Pseudorandomness" target="_blank">pseudo-random number</a>.</p>
+
+        <h2>Method 2: Seeding with srand()</h2>
+        <p>To ensure a different sequence of random numbers, the <code>srand()</code> function is used to seed the random number generator. It's commonly used at the current time as the seed.</p>
+        <pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+            
+int main() {
+    srand(time(0));
+    int random_number = rand();
+    printf("Random Number: %d\n", random_number);
+    return 0;
+}
+</pre>
+        <p><b>Output:</b> The value of the random number will change with every execution, thanks to the seeding of the random number generator with the current time. <br> By using both <code>rand()</code> and <code>srand()</code>, one can generate random numbers efficiently in C for various purposes.</p>
+
+        <h2>Summary of Approaches</h2>
+        
+        <h3>Using rand() Without Seeding (First Snippet)</h3>
+        <h3>Pros</h3>
+        <ul>
+            <li>Simple and straightforward to use.</li>
+            <li>Useful if you need a deterministic sequence of random numbers across different runs of the program.</li>
+        </ul>
+
+        <h3>Cons</h3>
+        <ul>
+            <li>Without seeding, the same sequence of random numbers will be generated every time the program is run.</li>
+        </ul>
+
+        <h3>Using rand() with Seeding (srand()) (Second Snippet)</h3>
+        <h3>Pros</h3>
+        <ul>
+            <li>By seeding with the current time, the random number generator produces different sequences of random numbers on each execution.</li>
+            <li>Applicable in most scenarios where random numbers are required.</li>
+        </ul>
+
+        <h3>Cons</h3>
+        <ul>
+            <li>The randomness is still pseudo-random, and it might not be suitable for cryptographic purposes.</li>
+            <li>Seeding with the current time might lead to the same sequence if the program is executed quickly in succession.</li>
+        </ul>
+        <p>In summary, using <code>rand()</code> without seeding might be useful in very specific cases where the same sequence is desired, but for most general purposes, using <code>srand()</code> to seed the random number generator is the preferable approach.</p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to find the Python Installation Path on Windows?</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <section>
+        <h1>How to find the Python Installation Path on Windows?</h1>
+        <p>Locating the installation path of Python on your Windows system is essential for various tasks such as setting up environment variables or troubleshooting issues. In this guide, I will show you two methods to help you find the Python installation path, first using the Command Prompt (cmd) and the newer terminal.</p>
+
+        <h2>Method 1: Using Command Prompt (CMD)</h2>
+        <p>This classic method involves utilizing Windows' Command Prompt to find where Python is installed.</p>
+
+        <h3>Step 1: Open Command Prompt</h3>
+        <p>Press Win + R to open the run window, type <code>cmd</code>, and press Enter.</p>
+        <img class="blog_7" src="../assets/images/7_run.png" alt="image">
+
+        <h3>Step 2: Use the where Command</h3>
+        <p>In the Command Prompt window, type the following command:</p>
+        <pre>where python</pre>
+        <p>Press Enter, and the system will display the paths where Python is installed.</p>
+        <img class="blog_7" src="../assets/images/7_cmdwhere.png" alt="image">
+
+        <h2>Method 2: Using Terminal</h2>
+        <p>The terminal is a powerful scripting environment and newer command-line shell, offering a more modern approach to interacting with your system. If you use the terminal, the following steps will help you find where Python is installed!<br> Follow the steps below:</p>
+
+        <h3>Step 1: Open Terminal</h3>
+        <p>You can open Terminal by searching for it in the Start menu and selecting "Terminal".</p>
+
+        <h3>Step 2: Use the Get-Command Command</h3>
+        <p>In the Terminal window, type the following command:</p>
+        <pre>(Get-Command python).Path</pre>
+        <p>Press Enter, and Terminal will reveal the paths where Python is installed.</p>
+        <img class="blog_7" src="../assets/images/7_whereterm.png" alt="image">
+
+        <h2>Conclusion</h2>
+        <p>Both the Command Prompt and Terminal methods are effective ways to find the Python installation path on your Windows system. While the Command Prompt is more traditional, Terminal offers a modern and powerful alternative.<br>
+        Whether you're troubleshooting an issue, setting up an environment variable, or simply curious about your Python installation, these methods provide you with the information you need.<br>
+        Feel free to drop a comment if you have any questions or require further assistance.<br>
+        Happy coding!</p>
+    </section>
+</body>
+</html>

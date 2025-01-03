@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Language CheatSheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>C Language CheatSheet</h1>
+        <p>This C cheatsheet is aimed to provide you with a quick syntax revision of C language. This will be helpful for students who need a quick syntax revision right before their exams or professionals to quickly look at the C language syntax. Let's start with the basics and move toward the more intricate aspects of C programming.</p>
+
+        <h2>Basics</h2>
+        <p>Basic syntax and functions from the C programming language.</p>
+
+        <h3>Boilerplate Code</h3>
+        <pre>
+#include&lt;stdio.h&gt; //header files
+int main() //main function
+{
+    // Your code here
+    return(0); //returning value to int main()
+}           
+</pre>
+
+        <h3>printf function</h3>
+        <p>It is used to show output on the screen</p>
+        <pre>printf("Hello World!");</pre>
+
+        <h3>scanf function</h3>
+        <p>It is used to take input from the user</p>
+        <pre>scanf("format_specifier", &variables)</pre>
+
+        <p>We use & with the variable name to represent "address of". This is how the syntax works:</p>
+        <pre>
+int a;
+scanf("%d",&a); // Store keyboard input in a variable with address (address of a or &a)
+printf("%d",a);
+        </pre>
+
+        <h2>Comments</h2>
+        <p>A comment is a code that is not executed by the compiler, and the programmer uses it to annotate their code, providing explanations or reminders about the code's functionality, which aids in readability and future maintenance.</p>
+
+        <h3>Single line comment</h3>
+        <pre>// This is a single line comment</pre>
+
+        <h3>Multi-line comment</h3>
+        <pre>
+/* This is a 
+multi-line
+comment
+*/
+</pre>
+
+        <h2>Data types</h2>
+        <p>The data type defines the kind of data that can be stored in a variable, such as integers, floating-point numbers, characters, or more complex structures. It dictates how the data is stored, interpreted, and manipulated within the program.</p>
+
+        <h3>Character type</h3>
+        <p>The character type, often represented as a single octet (one byte), is used to store individual characters in the C programming language.</p>
+        <pre>char variable_name;</pre>
+        <p>The format specifier for a character in C is "%c". To print a character, we use this specifier within the printf function, following the syntax like this:</p>
+        <pre>
+char x;
+scanf(" %c",&x);
+printf("character is %c",x)            
+</pre>
+
+        <h3>Integer type</h3>
+        <p>To store non-decimal numeric values, an integer type is used</p>
+        <pre>int variable_name;</pre>
+        <p>The format specifier of an integer is "%d"</p>
+        <pre>
+int a;
+scanf("%d",&a);
+printf("%d",a);            
+</pre>
+
+        <h3>Float type</h3>
+        <p>To store decimal numeric values, float type is used</p>
+        <pre>float variable_name;</pre>
+        <p>The format specifier of a float is "%f"</p>
+        <pre>
+float b;
+scanf("%f",&b);
+printf("%f",b);
+</pre>
+
+        <h3>Double type</h3>
+        <p>To store a double-precision floating-point value we use double.</p>
+        <pre>double variable_name;</pre>
+        <p>The format specifier of double is "%f"</p>
+        <pre>
+double ch;
+scanf("%lf",&ch);
+printf("%lf",ch);
+</pre>
+
+        <h3>Void type</h3>
+        <p>The void type in C represents the absence of a type. It's often used in function declarations to specify that the function does not return any value. For example:</p>
+        <pre>
+void myFunction() {
+  // Function code here
+}
+</pre>
+        <p>In this context, the void keyword indicates that myFunction does not return a value. It can also be used for function parameters to indicate that a function takes no arguments</p>
+
+        <h2>Escape Sequences</h2>
+        <p>Escape sequences in C are combinations of characters that begin with a backslash (\) and are used to represent characters that cannot be typed directly. These sequences are interpreted in a special way when used inside string literals or character constants.</p>
+        <p>For example, the escape sequence \n represents a newline character, and \t represents a tab character. Here are some escape sequence characters used in C language.</p>
+
+        <h3>Alarm or Beep</h3>
+        <p>\a produces a beep sound</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("\a"); // It produces a beep sound
+    return 0;
+}
+</pre>
+
+        <h3>Backspace</h3>
+        <p>\b adds a backspace</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("Hello\bWorld"); // It prints "HellWorld"
+    return 0;
+}
+</pre>
+
+        <h3>Form feed</h3>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("Page break here\fContinue text"); // It may create a page break, but it's not supported everywhere
+    return 0;
+}
+</pre>
+
+        <h3>Newline</h3>
+        <p>Newline Character</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("Line one\nLine two"); // Prints two lines
+    return 0;
+}
+</pre>
+
+        <h3>Carriage return</h3>
+        <p>The carriage return, represented by the escape sequence \r in the C programming language, is a control character that resets the cursor position to the beginning of the current line. It doesn't erase any characters but simply moves the cursor to the start of the line. The string "Hello" is printed first, then the carriage return moves the cursor back to the beginning of the line, and "World" is printed, overwriting "Hello."</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{ 
+    printf("Hello\rWorld"); // Outputs "World" but behavior might vary depending on the OS
+    return 0;
+}
+</pre>
+
+        <h3>Tab</h3>
+        <p>It gives a tab space</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("Tabbed\ttext"); // Adds a tab space
+    return 0;
+}
+</pre>
+        
+        <h3>Backslash</h3>
+        <p>It adds a backslash</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("\\"); // Prints a backslash
+    return 0;
+}           
+</pre>n mark
+
+        <h3>Single quote</h3>
+        <p>It adds a single quotation mark</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("\'"); // Prints a single quotation mark
+    return 0;
+}            
+</pre>
+
+        <h3>Question mark</h3>
+        <p>It adds a question mark</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("\?"); // Prints a question mark
+    return 0;
+}            
+</pre>
+
+        <h3>Octal No.</h3>
+        <p>It represents the value of an octal number</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("\101"); // Prints 'A', which is 101 in octal
+    return 0;
+}
+</pre>
+
+        <h3>Hexadecimal No.</h3>
+        <p>It represents the value of a hexadecimal number</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("\x41"); // Prints 'A', which is 41 in hexadecimal
+    return 0;
+}            
+</pre>
+
+        <h3>Null</h3>
+        <p>The null character is usually used to terminate a string</p>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    printf("\0");
+    char str[] = "Hello\0World"; // The null character is used to terminate string
+    return 0;
+}
+</pre>
+
+        <h2>Conditional Instructions</h2>
+        <p>Conditional statements are used to perform operations based on some condition.</p>
+
+        <h3>If Statement</h3>
+        <pre>
+if (/* condition */)
+{
+    /* code */
+}           
+</pre>
+
+        <h3>If-else Statement</h3>
+        <pre>
+if (/* condition */)
+{
+    /* code */
+}
+else{
+    /* Code */
+}
+</pre>
+
+        <h3>if else-if Statement</h3>
+        <pre>
+if (condition) {
+    // Statements;
+}
+else if (condition){
+    // Statements;
+}
+else{
+    // Statements
+}
+</pre>
+
+        <h3>nested if-else</h3>
+        <pre>
+if (/* condition */) {
+    if (/* condition */) {
+        /* code */
+    } else {
+        /* Code */
+    }
+} else {
+    /* Code */
+}
+</pre>
+
+        <h3>Switch Case Statement</h3>
+        <p>It allows a variable to be tested for equality against a list of values (cases).</p>
+        <pre>
+switch (expression) {
+    case constant-expression:
+        statement1;
+        statement2;
+        break;
+    case constant-expression:
+        statement;
+        break;
+    // ...
+    default:
+        statement;
+}
+</pre>
+
+        <h2>Iterative Statements</h2>
+        <p>Iterative statements facilitate programmers to execute any block of code lines repeatedly and can be controlled as per conditions added by the programmer.</p>
+
+        <h3>while Loop</h3>
+        <p>It allows the execution of statements inside the block of the loop until the condition of the loop succeeds.</p>
+        <pre>
+while (/* condition */)
+{
+    /* code */
+}
+</pre>
+
+        <h3>do-while loop</h3>
+        <p>It is an exit-controlled loop. It is very similar to the while loop with one difference, i.e., the body of the do-while loop is executed at least once even if the expression is false</p>
+        <pre>
+do
+{
+    /* code */
+} while (/* condition */);
+</pre>
+
+        <h3>for loop</h3>
+        <p>It is used to iterate the statements or a part of the program several times. It is frequently used to traverse the data structures like the array and linked list.</p>
+        <pre>
+for (int i = 0; i < count; i++)
+{
+    /* code */
+}
+</pre>
+
+        <h3>Break Statement</h3>
+        <p>break keyword inside the loop is used to terminate the loop</p>
+        <pre>
+#include&lt;stdio.h&gt;
+
+int main() {
+    for (int i = 0; i < 10; i++) {
+        if (i == 5) {
+            printf("Loop is breaking at i = 5\n");
+            break; // Exit the loop when i is 5
+        }
+        printf("i = %d\n", i);
+    }
+                
+    return 0;
+}               
+</pre>
+
+        <p>Here is the output of the above code:</p>
+        <pre>
+i = 0
+i = 1
+i = 2
+i = 3
+i = 4
+Loop is breaking at i = 5            
+</pre>
+
+        <h3>Continue Statement</h3>
+        <p>continue keyword skips the rest of the current iteration of the loop and returns to the starting point of the loop</p>
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i <= 10; i++) {
+        if (i % 2 == 0) {
+            continue; // Skip the rest of the loop body if i is even
+        }
+        printf("%d ", i); // Print the odd numbers
+    }
+    return 0;
+}
+                
+// Output is 1 3 5 7 9
+</pre>
+
+        <h2>Functions & Recursion</h2>
+        <p>Functions are used to divide an extensive program into smaller pieces. It can be called multiple times to provide reusability and modularity to the C program.</p>
+
+        <h3>Function Definition</h3>
+        <pre>
+return_type function_name(data_type parameter...){ 
+//code to be executed 
+}            
+</pre>
+
+        <h3>Function Call</h3>
+        <pre>function_name(parameters...);</pre>
+
+        <h3>return_type in functions</h3>
+        <p>The function return statement returns the specified value or data item to the caller. If we do not want to return any value simply place a void before the function name while defining it.</p>
+        <pre>
+return_type function_name()
+{
+    return value;
+}
+</pre>
+
+        <h3>Parameters in C function</h3>
+        <p>Parameters are the values passed inside the parenthesis of the function while defining as well as while calling.</p>
+        <pre>
+return_type function_name(data_type parameter...){    //defining the functions with parameters
+    //code to be executed 
+}
+function_name(parameter...);    //calling the functions with parameters            
+</pre>
+
+        <h3>Ways of calling a function</h3>
+        <ol>
+            <li>With return value and with parameters</li>
+            <li>Without return value and with parameters</li>
+            <li>With return value and without parameters</li>
+            <li>Without return value and without parameters</li>
+        </ol>
+
+        <h3>Recursion</h3>
+        <p>Recursion is when a function calls a copy of itself to work on a minor problem. And the function that calls itself is known as the Recursive function.</p>
+
+        <h2>Pointers</h2>
+        <p>A pointer is a variable that contains the address of another variable,</p>
+
+        <h3>Declaration</h3>
+        <pre>datatype *var_name;</pre>
+        <p>We can allocate the address of the pointing variable to the pointer variable</p>
+        <pre>
+#include <stdio.h>
+
+int main() {
+    int *ptr, x;
+    x = 15;
+    ptr = &x;
+                
+    // This will print the address of x, not the value 15
+    printf("%p", ptr);
+                
+    return 0;
+}
+</pre>
+
+        <h3>Dereferencing pointer variable</h3>
+        <pre>
+#include <stdio.h>
+
+int main() {
+    int *ptr, x;
+    x = 12;
+    ptr = &x; // Assign the address of x to ptr
+    printf("%d", *ptr); // Dereference ptr to print the value of x
+                
+    return 0;
+}    
+</pre>
+
+        <h2>Arrays</h2>
+        <p>An array is a collection of data items of the same type.</p>
+
+        <h3>Declaration</h3>
+        <pre>data_type array_name[array_size];</pre>
+        <pre>
+#include&lt;stdio.h&gt;                         
+int main()                               
+{
+int arr[10];   
+}
+</pre>
+
+        <h3>Accessing element</h3>
+        <pre>data_type variable_name = array[index];</pre>
+
+        <h2>Strings</h2>
+        <p>A string is a 1-D character array terminated by a null character ('\0')</p>
+
+        <h3>Declaration</h3>
+        <pre>char str_name[size];</pre>
+
+        <h3>gets() function</h3>
+        <p>It allows you to enter a multi-word string.</p>
+        <pre>gets("string");</pre>
+
+        <h3>puts() function</h3>
+        <p>It is used to show string output</p>
+        <pre>puts("string");</pre>
+
+        <h3>fgets() function</h3>
+        <p>The gets() function is considered unsafe, and it is better to use fgets() instead.</p>
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char str[50];
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    printf("You entered: %s", str);
+    return 0;
+}
+</pre>
+
+        <h3>String Functions</h3>
+        <h3>strlen() function</h3>
+        <p>It is used to calculate the length of the string</p>
+        <pre>strlen(string_name);</pre>
+
+        <h3>strcpy() function</h3>
+        <p>It is used to copy the content of second-string into the first string passed to it</p>
+        <pre>strcpy(destination, source);</pre>
+
+        <h3>strcat() function</h3>
+        <p>It is used to concatenate two strings</p>
+        <pre>strcat(first_string, second_string);</pre>
+
+        <h3>strcmp() function</h3>
+        <p>It is used to compare two strings</p>
+        <pre>strcmp(first_string, second_string);</pre>
+
+        <h3>strlwr() function</h3>
+        <p>It is used to convert characters of strings into lowercase</p>
+        <pre>strlwr(string_name);</pre>
+
+        <h3>strupr() function</h3>
+        <p>It is used to convert characters of strings into uppercase</p>
+        <pre>strupr(string_name);</pre>
+
+        <h3>strrev() function</h3>
+        <p>It is used to reverse the string</p>
+        <pre>strrev(string_name);</pre>
+
+        <h2>Structures</h2>
+        <p>The structure is a collection of variables of different types under a single name. Defining structure means creating a new data type.</p>
+
+        <h3>Structure syntax</h3>
+        <pre>
+struct structureName 
+{
+    dataType member1;
+    dataType member2;
+    ...
+};
+        </pre>
+
+        <h3>typedef keyword</h3>
+        <p>typedef function allows users to provide alternative names for the primitive and user-defined data types.</p>
+        <pre>
+typedef struct structureName 
+{
+    dataType member1;
+    dataType member2;
+    ...
+} new_name;
+</pre>
+
+        <h2>File Handling</h2>
+        <p>A set of methods for handling File IO (read/write/append) in C language</p>
+
+        <h3>FILE pointer</h3>
+        <pre>FILE *filePointer;</pre>
+
+        <h3>Opening a file</h3>
+        <p>It is used to open a file in C.</p>
+        <pre>filePointer = fopen(fileName.txt, w)</pre>
+
+        <h3>fscanf() function</h3>
+        <p>It is used to read the content of a file.</p>
+        <pre>fscanf(FILE *stream, const char *format, ...)</pre>
+
+        <h3>fprintf() function</h3>
+        <p>It is used to write content into the file.</p>
+        <pre>fprintf(FILE *fptr, const char *str, ...);</pre>
+
+        <h3>fgetc() function</h3>
+        <p>It reads a character from a file opened in read mode. It returns EOF on reaching the end of the file.</p>
+        <pre>fgetc(FILE *pointer);</pre>
+
+        <h3>fputc() function</h3>
+        <p>It writes a character to a file opened in write mode</p>
+        <pre>fputc(char, FILE *pointer);</pre>
+
+        <h3>Closing a file</h3>
+        <p>It closes the file.</p>
+        <pre>fclose(filePointer);</pre>
+
+        <h2>Dynamic Memory Allocation</h2>
+        <p>A set of functions for dynamic memory allocation from the heap. These methods are used to use the dynamic memory which makes our C programs more efficient</p>
+
+        <h3>malloc() function</h3>
+        <p>Stands for 'Memory allocation' and reserves a block of memory with the given amount of bytes.</p>
+        <pre>ptr = (castType*) malloc(size);</pre>
+
+        <h3>calloc() function</h3>
+        <p>Stands for 'Contiguous allocation' and reserves n blocks of memory with the given amount of bytes.</p>
+        <pre>ptr = (castType*)calloc(n, size);</pre>
+
+        <h3>free function</h3>
+        <p>It is used to free the allocated memory.</p>
+        <pre>free(ptr);</pre>
+
+        <h3>realloc() function</h3>
+        <p>If the allocated memory is insufficient, then we can change the size of previously allocated memory using this function for efficiency purposes</p>
+        <pre>ptr = realloc(ptr, x);</pre>
+        <p>I hope the provided information covers what you need. I tried to cover almost all the important topics of C If you'd like to download my handwritten notes, please visit <a href="https://www.codewithharry.com/notes/">Code with Harry's Notes </a> For your convenience, a link to download this cheatsheet as a PDF is provided below:</p>
+        <a href="../assets/pdf/C Cheatsheet.pdf" download="C Cheatsheet.pdf">Download this Cheatsheet as PDF</a>
+    </section>
+</body>
+</html>

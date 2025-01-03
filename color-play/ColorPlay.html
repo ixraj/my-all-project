@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Boxes</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            width: 600px;
+            height: 600px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        #box1 {
+            margin-right: 20px;
+        }
+
+        #box2 {
+            margin-left: 20px;
+        }
+
+        .box:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <script>
+        const box1 = document.getElementById('box1');
+        const box2 = document.getElementById('box2');
+
+        box1.addEventListener('mouseover', () => {
+            box2.style.backgroundColor = '#FF9800';
+        });
+
+        box1.addEventListener('mouseout', () => {
+            box2.style.backgroundColor = 'white';
+        });
+
+        box2.addEventListener('mouseover', () => {
+            box1.style.backgroundColor = '#00BFA5';
+        });
+
+        box2.addEventListener('mouseout', () => {
+            box1.style.backgroundColor = 'white';
+        });
+    </script>
+</body>
+
+</html>

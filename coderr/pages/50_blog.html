@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Cheatsheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>Java Cheatsheet</h1>
+        <h2>Basics</h2>
+        <p>Basic syntax and functions from the Java programming language.</p>
+
+        <h3>Boilerplate</h3>
+        <pre>
+class HelloWorld
+{
+        public static void main(String args[])
+        {
+                System.out.println("Hello World");
+        }
+}            
+</pre>
+
+        <h3>Showing Output</h3>
+        <p>It will print something to the output console.</p>
+        <pre>
+class HelloWorld
+{
+        public static void main(String args[])
+        {
+                System.out.println("Hello World");
+        }
+}
+</pre>
+
+        <h3>Taking Input</h3>
+        <p>It will take string input from the user</p>
+        <pre>
+import java.util.Scanner;
+class HelloWorld
+{
+        public static void main(String args[])
+        {
+              Scannner sc=new Scanner(System.in);
+              String name=sc.nextLine();
+              System.out.println(name);
+        }
+}
+</pre>
+        <p>It will take integer input from the user</p>
+        <pre>
+import java.util.Scanner;
+class HelloWorld
+{
+        public static void main(String args[])
+        {
+              Scannner sc=new Scanner(System.in);
+              int x=sc.nextInt();
+              System.out.println(x);
+        }
+}
+        </pre>
+        <p>It will take float input from the user</p>
+        <pre>
+import java.util.Scanner;
+class HelloWorld
+{
+        public static void main(String args[])
+        {
+              Scannner sc=new Scanner(System.in);
+              int x=sc.nextFloat();
+              System.out.println(x);
+        }
+}
+</pre>
+        <p>It will take double input from the user</p>
+        <pre>
+import java.util.Scanner;
+class HelloWorld
+{
+        public static void main(String args[])
+        {
+              Scannner sc=new Scanner(System.in);
+              double x=sc.nextDouble();
+              System.out.println(x);
+        }
+}
+</pre>
+
+        <h2>Primitive Type Variables</h2>
+        <p>The eight primitives defined in Java are int, byte, short, long, float, double, boolean, and char those aren't considered objects and represent raw values.</p>
+
+        <h3>byte</h3>
+        <p>byte is a primitive data type it only takes up 8 bits of memory.</p>
+        <pre>
+class HelloWorld
+{ 
+       public static void main(String args[])
+      {
+            byte age=18;
+            System.out.println(age);
+      } 
+}
+</pre>
+
+        <h3>long</h3>
+        <p>long is another primitive data type related to integers. long takes up 64 bits of memory.</p>
+        <pre>
+class HelloWorld
+{ 
+       public static void main(String args[])
+      {
+            long var=900.0;
+            System.out.println(age);
+      } 
+}
+</pre>
+
+        <h3>float</h3>
+        <p>We represent basic fractional numbers in Java using the float type. This is a single-precision decimal number. Which means if we get past six decimal points, this number becomes less precise and more of an estimate.</p>
+        <pre>
+class HelloWorld
+{ 
+       public static void main(String args[])
+      {
+            float price=100.05;
+            System.out.println(price);
+      } 
+}   
+</pre>
+
+        <h3>char</h3>
+        <p>Char is a 16-bit integer representing a Unicode-encoded character.</p>
+        <pre>
+class HelloWorld
+{ 
+       public static void main(String args[])
+      {
+            char letter='A';
+            System.out.println(letter);
+      } 
+}
+</pre>
+
+        <h3>int</h3>
+        <p>int holds a wide range of non-fractional number values.</p>
+        <pre>
+class HelloWorld
+{ 
+   public static void main(String args[])
+   { 
+        int var1=256;
+        System.out.println(var1); 
+    } 
+}</pre>
+
+        <h3>short</h3>
+        <p>If we want to save memory and byte is too small, we can use short.</p>
+        <pre>
+class HelloWorld
+{ 
+   public static void main(String args[])
+   { 
+        short var2=5666;
+        System.out.println(var2); 
+   } 
+}
+</pre>
+
+        <h2>Comments</h2>
+        <p>A comment is the code that is not executed by the compiler, and the programmer uses it to keep track of the code.</p>
+
+        <h3>Single line comment</h3>
+        <pre>// It's a single line comment</pre>
+
+        <h3>Multi-line comment</h3>
+        <pre>
+/* It's a 
+multi-line
+comment
+*/
+</pre>
+
+        <h2>Constants</h2>
+        <p>Constants are like a variable, except that their value never changes during program execution.</p>
+        <pre>
+public class Declaration {
+
+  final double PI = 3.14;
+
+  public static void main(String[] args) {
+    System.out.println("Value of PI:  " + PI);
+  }
+}
+</pre>
+
+        <h2>Arithmetic Expressions</h2>
+        <p>These are the collection of literals and arithmetic operators.</p>
+
+        <h3>Addition</h3>
+        <p>It can be used to add two numbers</p>
+        <pre>
+public class HelloWorld
+{
+    public static void main(String args[])
+    {
+          int x=10+3;
+          System.out.println(x);
+    }
+}
+</pre>
+
+        <h3>Subtraction</h3>
+        <p>It can be used to subtract two numbers</p>
+        <pre>
+public class HelloWorld
+{
+    public static void main(String args[])
+    {
+          int x=10-3;
+          System.out.println(x);
+    }
+}
+</pre>
+
+        <h3>Multiplication</h3>
+        <p>It can be used to multiply add two numbers</p>
+        <pre>
+public class HelloWorld
+{
+    public static void main(String args[])
+    {
+          int x=10*3;
+          System.out.println(x);
+    }
+}
+</pre>
+
+        <h3>Division</h3>
+        <p>It can be used to divide two numbers</p>
+        <pre>
+public class HelloWorld
+{
+    public static void main(String args[])
+    {
+          int x=10/3;
+          System.out.println(x);
+    }
+}
+</pre>
+
+        <h3>Modulo Remainder</h3>
+        <p>It returns the remainder of the two numbers after division</p>
+        <pre>
+public class HelloWorld
+{
+    public static void main(String args[])
+    {
+          int x=10%3;
+          System.out.println(x);
+    }
+}
+</pre>
+
+        <h2>Augmented Operators</h2>
+        <h3>Addition assignment</h3>
+        <pre>
+public class HelloWorld
+{
+    public static void main(String args[])
+    {
+          var=1;
+          var+=10;
+          System.out.println(var);
+    }
+}
+        </pre>
+
+        <h3>Subtraction assignment</h3>
+        <pre>
+public class HelloWorld
+{
+    public static void main(String args[])
+    {
+          var=1;
+          var-=10;
+          System.out.println(var);
+    }
+}
+</pre>
+
+        <h3>Multiplication assignment</h3>
+        <pre>
+public class HelloWorld
+{
+    public static void main(String args[])
+    {
+          var=1;
+          var*=10;
+          System.out.println(var);
+    }
+}
+        </pre>
+
+        <h3>Division assignment</h3>
+        <pre>
+public class HelloWorld
+{
+    public static void main(String args[])
+    {
+          var=1;
+          var/=10;
+          System.out.println(var);
+    }
+}
+</pre>
+
+        <h3>Modulus assignment</h3>
+        <pre>
+public class HelloWorld
+{
+    public static void main(String args[])
+    {
+          var=1;
+          var%=10;
+          System.out.println(var);
+    }
+}
+</pre>
+
+        <h2>Escape Sequences</h2>
+        <p>It is a sequence of characters starting with a backslash, and it doesn't represent itself when used inside string literal.</p>
+
+        <h3>Tab</h3>
+        <p>It gives a tab space</p>
+        <pre>
+public class HelloWorld
+{
+   public static void main(String args[])
+   {
+        System.out.print("\t");
+   }
+}
+</pre>
+        
+        <h3>Backslash</h3>
+        <p>It adds a backslash</p>
+        <pre>
+public class HelloWorld
+{
+   public static void main(String args[])
+   {
+        System.out.print("\\");
+   }
+}
+</pre>
+
+        <h3>Single quote</h3>
+        <p>It adds a single quotation mark</p>
+        <pre>
+public class HelloWorld
+{
+   public static void main(String args[])
+   {
+        System.out.print("\'");
+   }
+}
+</pre>
+
+        <h3>Question mark</h3>
+        <p>It adds a question mark</p>
+        <pre>
+public class HelloWorld
+{
+   public static void main(String args[])
+   {
+        System.out.print("\?");
+   }
+}
+        </pre>
+
+        <h3>Carriage return</h3>
+        <p>Inserts a carriage return in the text at this point.</p>
+        <pre>
+public class HelloWorld
+{
+   public static void main(String args[])
+   {
+        System.out.print("\r");
+   }
+}
+</pre>
+
+        <h3>Double quote</h3>
+        <p>It adds a double quotation mark</p>
+        <pre>
+public class HelloWorld
+{
+   public static void main(String args[])
+   {
+        System.out.print("\"");
+   }
+}
+</pre>
+
+        <h2>Type Casting</h2>
+        <p>Type Casting is a process of converting one data type into another</p>
+
+        <h3>Widening Type Casting</h3>
+        <p>It means converting a lower data type into a higher</p>
+        <pre>
+class HelloWorld
+{
+   public static void main(String args[])
+   {
+        int x = 45;
+        double var_name = x;
+        System.out.println(var_name);
+   }
+    
+}
+</pre>
+
+        <h3>Narrowing Type Casting</h3>
+        <p>It means converting a higher data type into a lower</p>
+        <pre>
+class HelloWorld
+{
+   public static void main(String args[])
+   {
+        double x = 40005;
+        int var_name = x;
+        System.out.println(var_name);
+   }
+    
+}
+        </pre>
+
+        <h2>Decision Control Statements</h2>
+        <p>Conditional statements are used to perform operations based on some condition.</p>
+
+        <h3>if Statement</h3>
+        <pre>
+if (condition) {
+// block of code to be executed if the condition is true
+}
+</pre>
+
+        <h3>if-else Statement</h3>
+        <pre>
+if (condition) {
+// If condition is True then this block will get executed
+} else {
+// If condition is False then this block will get executed
+}
+</pre>
+
+        <h3>if else-if Statement</h3>
+        <pre>
+if (condition1) {
+// Codes
+}
+else if(condition2) {
+// Codes
+}
+else if (condition3) {
+// Codes
+}
+else {
+// Codes
+}
+        </pre>
+
+        <h3>Ternary Operator</h3>
+        <p>It is shorthand of an if-else statement.</p>
+
+        <h3>Syntax</h3>
+        <pre>variable = (condition) ? expressionTrue : expressionFalse;</pre>
+
+        <h3>Example</h3>
+        <pre>
+public class TernaryOperatorExample  
+{  
+  public static void main(String args[])   
+  {  
+    int x, y;  
+    x = 20;  
+    y = (x == 1) ? 61: 90;  
+    System.out.println("Value of y is: " +  y);  
+    y = (x == 20) ? 61: 90;  
+    System.out.println("Value of y is: " + y);  
+  }  
+}    
+        </pre>
+
+        <h3>Switch Statements</h3>
+        <p>It allows a variable to be tested for equality against a list of values (cases).</p>
+        <pre>
+class SwitchExample
+{
+  public static void main(String args[])
+  {
+  int day = 4;
+  switch (day) {
+  case 1:
+    System.out.println("Monday");
+    break;
+  case 2:
+    System.out.println("Tuesday");
+    break;
+  case 3:
+    System.out.println("Wednesday");
+    break;
+  case 4:
+    System.out.println("Thursday");
+    break;
+  case 5:
+    System.out.println("Friday");
+    break;
+  case 6:
+    System.out.println("Saturday");
+    break;
+  case 7:
+    System.out.println("Sunday");
+    break;
+  }
+}
+</pre>
+
+        <h2>Iterative Statements</h2>
+        <p>Iterative statements facilitate programmers to execute any block of code lines repeatedly and can be controlled as per conditions added by the coder.</p>
+
+        <h3>while Loop</h3>
+        <p>It iterates the block of code as long as a specified condition is True</p>
+        <pre>
+public class WhileExample
+{  
+  public static void main(String[] args) 
+  {  
+    int i=1;  
+    while(i<=10)
+    {  
+        System.out.println(i);  
+        i++;  
+    }  
+  }  
+}  
+</pre>
+
+        <h3>for Loop</h3>
+        <p>for loop is used to run a block of code several times</p>
+        <pre>
+class HelloWorld
+{
+   public static void main(String args[])
+   {
+        int i;
+        for(i=1;i&lt;100;i++)
+         {
+              System.out.println(i);
+         }
+   }
+    
+}
+</pre>
+
+        <h3>for-each Loop</h3>
+        <pre>
+public class HelloWorld
+{
+   public static void main(String args[])
+   {
+     int[] arr = {2,4,5,7,8,0,3,5}
+     for (int i : arr) {
+     System.out.println(i);
+   }
+}
+        </pre>
+
+        <h3>do-while Loop</h3>
+        <p>It is an exit controlled loop. It is very similar to the while loop with one difference, i.e., the body of the do-while loop is executed at least once even if the condition is False</p>
+        <pre>
+public class HelloWorld
+{
+   public static void main(String args[])
+   { 
+        int i=1;
+        do
+        {
+             System.out.println(i);
+             i++;
+        }while(i<=100);
+   }
+}
+        </pre>
+
+        <h3>Break statement</h3>
+        <p>break keyword inside the loop is used to terminate the loop</p>
+        <pre>
+class HelloWorld
+{
+   public static void main(String args[])
+   {
+        int i;
+        for(i=1;i&lt;100;i++)
+         {
+              System.out.println(i);
+              if(i==50)
+              break;
+         }
+   }
+    
+}
+</pre>
+
+        <h3>Continue statement</h3>
+        <p>continue keyword skips the rest of the current iteration of the loop and returns to the starting point of the loop</p>
+        <pre>
+class HelloWorld
+{
+   public static void main(String args[])
+   {
+        int i;
+        for(i=1;i&lt;100;i++)
+         {
+              System.out.println(i);
+              if(i==50)
+              continue;
+         }
+   }
+    
+}
+</pre>
+
+        <h2>Arrays</h2>
+        <p>Arrays are used to store multiple values in a single variable</p>
+        <h3>Declaring an array</h3>
+        <p>Declaration of an array</p>
+        <pre>
+public class HelloWorld
+{
+  public static void main(String args[])
+  {
+     String [] var_name;
+  }
+}
+</pre>
+
+        <h3>Defining an array</h3>
+        <p>Defining an array</p>
+        <pre>
+public class HelloWorld
+{
+  public static void main(String args[])
+  {
+     String [] var_name={"harry","rohan","aakash"}
+  }
+}
+</pre>
+
+        <h3>Accessing an array</h3>
+        <p>Accessing the elements of an array</p>
+        <pre>
+public class HelloWorld
+{
+  public static void main(String args[])
+  {
+    String[] var_name = {''Harry", "Rohan", "Aakash"};
+    System.out.println(var_name[index]);
+  }
+}
+</pre>
+
+        <h3>Changing an element</h3>
+        <p>Changing any element in an array</p>
+        <pre>
+public class HelloWorld
+{
+  public static void main(String args[])
+  {
+    String[] var_name = {''Harry", "Rohan", "Aakash"};
+    var_name[2]="Shubham";
+  }
+}
+</pre>
+
+        <h3>Array length</h3>
+        <p>It gives the length of the array</p>
+        <pre>
+public class HelloWorld
+{
+  public static void main(String args[])
+  {
+     System.out.println(var_name.length);
+  }
+}
+</pre>
+
+        <h3>Loop through an array</h3>
+        <p>It allows us to iterate through each array element</p>
+        <pre>
+public class HelloWorld
+{
+  public static void main(String args[])
+  {
+    String[] var_name = {''Harry", "Rohan", "Aakash"};
+    for (int i = 0; i < var_name.length; i++) {
+     System.out.println(var_name[i]);
+     }   
+  }
+}
+</pre>
+
+        <h3>Multi-dimensional Arrays</h3>
+        <p>Arrays can be 1-D, 2-D or multi-dimensional.</p>
+        <pre>
+// Creating a 2x3 array (two rows, three columns) 
+int[2][3] matrix = new int[2][3]; 
+matrix[0][0] = 10; 
+// Shortcut 
+int[2][3] matrix = { 
+{ 1, 2, 3 }, 
+{ 4, 5, 6 } 
+};
+</pre>
+
+        <h2>Methods</h2>
+        <p>Methods are used to divide an extensive program into smaller pieces. It can be called multiple times to provide reusability to the program.</p>
+
+        <h3>Declaration</h3>
+        <p>Declaration of a method</p>
+        <pre>
+returnType methodName(parameters) {
+//statements
+}     
+</pre>
+
+        <h3>Calling a method</h3>
+        <p>Calling a method</p>
+        <pre>methodName(arguments);</pre>
+
+        <h3>Example</h3>
+        <pre>
+public static void findEvenOdd(int num)  
+{  
+  //method body  
+  if(num%2==0)   
+    System.out.println(num+" is even");   
+  else   
+    System.out.println(num+" is odd");  
+}  
+import java.util.Scanner;  
+public class EvenOdd  
+{  
+  public static void main (String args[])  
+  {  
+    //creating Scanner class object     
+    Scanner scan=new Scanner(System.in);  
+    System.out.print("Enter the number: ");  
+    //reading value from the user  
+    int num=scan.nextInt();  
+    //method calling  
+    findEvenOdd(num);  
+}  
+</pre>
+
+        <h3>Method Overloading</h3>
+        <p>Method overloading means having multiple methods with the same name, but different parameters.</p>
+        <pre>
+class Calculate
+{
+  void sum (int x, int y)
+  {
+    System.out.println("Sum is: "+(a+b)) ;
+  }
+  void sum (float x, float y)
+  {
+    System.out.println("Sum is: "+(a+b));
+  }
+public static void main (String[] args)
+{
+   Calculate calc = new Calculate();
+   calc.sum (5,4); //sum(int x, int y) is method is called.
+   calc.sum (1.2f, 5.6f); //sum(float x, float y) is called.
+}
+}
+</pre>
+
+        <h3>Recursion</h3>
+        <p>Recursion is when a function calls a copy of itself to work on a minor problem. And the function that calls itself is known as the Recursive function.</p>
+        <pre>
+void recurse()
+{
+recurse();
+}</pre>
+
+        <h2>Strings</h2>
+        <p>It is a collection of characters surrounded by double quotes.</p>
+
+        <h3>Creating String Variable</h3>
+        <pre>String var_name = "Hello World";</pre>
+
+        <h3>String Length</h3>
+        <p>Returns the length of the string</p>
+        <pre>
+public class str
+{
+  public static void main(String args[])
+  {
+      String var_name = "Harry";
+      System.out.println("The length of the string is: " + var_name.length());    
+  }
+}
+</pre>
+
+        <h3>String Methods toUpperCase()</h3>
+        <p>Convert the string into uppercase</p>
+        <pre>
+public class str
+{
+  public static void main(String args[])
+  {
+      String var_name = "Harry";
+      System.out.println(var_name.toUpperCase());    
+  }
+}
+</pre>
+
+        <h3>toLowerCase()</h3>
+        <p>Convert the string into lowercase</p>
+        <pre>
+public class str
+{
+  public static void main(String args[])
+  {
+      String var_name = "Harry";
+      System.out.println(var_name.toLowerCase());    
+  }
+}
+</pre>
+
+        <h3>indexOf()</h3>
+        <p>Returns the index of specified character from the string</p>
+        <pre>
+public class str
+{
+  public static void main(String args[])
+  {
+      String var_name = "Harry";
+      System.out.println(var_name.indexOf("a"));    
+  }
+}
+</pre>
+
+        <h3>concat()</h3>
+        <p>Used to concatenate two strings</p>
+        <pre>
+public class str
+{
+  public static void main(String args[])
+  {
+    String var1 = "Harry";
+    String var2 = "Bhai";
+    System.out.println(var1.concat(var2));
+  }
+}
+</pre>
+
+        <h2>Math Class</h2>
+        <p>Math class allows you to perform mathematical operations.</p>
+
+        <h3>Methods max() method</h3>
+        <p>It is used to find the greater number among the two</p>
+        <pre>
+public class Demo   
+{  
+  public static void main(String[] args)   
+  {  
+    // using the max() method of Math class  
+    System.out.print("The maximum number is: " + Math.max(9,7));  
+  }  
+}      
+</pre>
+
+        <h3>min() method</h3>
+        <p>It is used to find the smaller number among the two</p>
+        <pre>
+public class Demo   
+{  
+  public static void main(String[] args)   
+  {  
+    // using the min() method of Math class  
+    System.out.print("The maximum number is: " + Math.min(9,7));  
+  }  
+}  
+</pre>
+
+        <h3>sqrt() method</h3>
+        <p>It returns the square root of the supplied value</p>
+        <pre>
+public class Demo   
+{  
+  public static void main(String[] args)   
+  {  
+    // using the sqrt method of Math class  
+    System.out.print("The maximum number is: " + Math.sqrt(144));  
+  }  
+}          
+        </pre>
+
+        <h3>random() method</h3>
+        <p>It is used to generate random numbers</p>
+        <pre>Math.random(); //It will produce random number b/w 0.0 and 1.0</pre>
+        <pre>
+public class Demo   
+{  
+  public static void main(String[] args)   
+  {  
+    // using the random() method of Math class  
+    int random_num = (int)(Math.random() * 101); //Random num b/w 0 and 100
+    System.out.println(random_num);
+  }  
+}  
+</pre>
+        
+        <h2>Object-Oriented Programming</h2>
+        <p>It is a programming approach that primarily focuses on using objects and classes. The objects can be any real-world entities.</p>
+
+        <h3>class</h3>
+        <p>A class can be defined as a template/blueprint that describes the behavior/state that the object of its type support.</p>
+        <pre>
+class ClassName {
+// Fields
+// Methods
+// Constructors
+// Blocks
+}
+</pre>
+
+        <h3>object of class</h3>
+        <p>An object is an instance of a Class.</p>
+        <pre>className object = new className();</pre>
+
+        <h3>Encapsulation</h3>
+        <p>Encapsulation is a mechanism of wrapping the data and code acting on the data together as a single unit. In encapsulation, the variables of a class will be hidden from other classes and can be accessed only through the methods of their current class.</p>
+        <pre>
+public class Person
+ { 
+   private String name; // using private access modifier 
+
+   // Getter 
+   public String getName() 
+   { 
+    return name; 
+   } 
+
+   // Setter  
+   public void setName(String newName) 
+   { 
+     this.name = newName; 
+   } 
+} 
+</pre>
+
+        <h3>Inheritance</h3>
+        <p>Inheritance can be defined as the process where one class acquires the properties of another. With the use of inheritance the information is made manageable in a hierarchical order.</p>
+        <pre>
+class Subclass-name extends Superclass-name 
+{ 
+//methods and fields 
+}
+</pre>
+
+        <h3>Example</h3>
+        <pre>
+class Employee
+{  
+  float salary=40000;  
+}  
+class Programmer extends Employee
+{  
+  int bonus=10000;  
+  public static void main(String args[])
+  {  
+    Programmer p=new Programmer();  
+    System.out.println("Programmer salary is:"+p.salary);  
+    System.out.println("Bonus of Programmer is:"+p.bonus);  
+  }  
+}  
+</pre>
+
+        <h3>Polymorphism</h3>
+        <p>Polymorphism is the ability of an object to take on many forms. The most common use of polymorphism in OOP occurs when a parent class reference is used to refer to a child class object.</p>
+        <pre>
+// A class with multiple methods with the same name 
+public class Adder 
+{ 
+// method 1 
+  public void add(int a, int b) 
+  { 
+  System.out.println(a + b); 
+  } 
+
+  // method 2 
+  public void add(int a, int b, int c)
+  { 
+  System.out.println(a + b + c); 
+  } 
+
+  // method 3 
+  public void add(String a, String b) 
+  { 
+  System.out.println(a + " + " + b); 
+  }  
+} 
+
+// My main class 
+class MyMainClass 
+{ 
+  public static void main(String[] args) 
+  { 
+    Adder adder = new Adder(); // create a Adder object 
+    adder.add(5, 4); // invoke method 1 
+    adder.add(5, 4, 3); // invoke method 2 
+    adder.add("5", "4"); // invoke method 3 
+  } 
+}
+</pre>
+
+        <h2>File Operations</h2>
+        <p>File handling refers to reading or writing data from files. Java provides some functions that allow us to manipulate data in the files. <br>
+        Assume that we have created the file “D:\\Example.txt”</p>
+
+        <h3>canRead methodp</h3>
+        <p>Checks whether the file is readable or not</p>
+        <pre>
+import java.io.*;
+ 
+public class FileOperations {
+    public static void main(String args[])
+    {
+ 
+        // Get the file
+        File f = new File("D:\\Example.txt");
+ 
+        // Check if the specified file
+        // can be read or not
+        if (f.canRead())
+            System.out.println("Can be Read");
+        else
+            System.out.println("Cannot be Read");
+    }
+}
+</pre>
+
+        <h3>createNewFile method</h3>
+        <p>It creates an empty file</p>
+        <pre>
+import java.io.*;
+  
+public class FileOperations
+{
+    public static void main(String args[])
+    {
+  
+        try {
+  
+            // Get the file
+            File f = new File("D:\\Example.txt");
+  
+            // Create new file
+            // if it does not exist
+            if (f.createNewFile())
+                System.out.println("File created");
+            else
+                System.out.println("File already exists");
+        }
+        catch (Exception e) {
+            System.err.println(e);
+        }
+    }
+}
+</pre>
+
+        <h3>canWrite method</h3>
+        <p>Checks whether the file is writable or not</p>
+        <pre>
+import java.io.*;
+  
+public class FileOperations {
+    public static void main(String args[])
+    {
+  
+        // Get the file
+        File f = new File("D:\\Example.txt");
+  
+        // Check if the specified file
+        // can be written or not
+        if (f.canWrite())
+            System.out.println("Can be written");
+        else
+            System.out.println("Cannot be written");
+    }
+}
+</pre>
+
+        <h3>exists method</h3>
+        <p>Checks whether the file exists</p>
+        <pre>
+import java.io.*;
+ 
+// Main class
+public class FileOperations {
+ 
+    public static void main(String args[])
+    {
+        File f = new File("D:\\Example.txt");
+ 
+        // Checking if the specified file exists or not
+        if (f.exists())
+ 
+            // Show if the file exists
+            System.out.println("Exists");
+        else
+ 
+            // Show if the file does not exists
+            System.out.println("Does not Exists");
+    }
+} 
+</pre>
+
+        <h3>delete method</h3>
+        <p>It deletes a file</p>
+        <pre>
+import java.io.*;
+ 
+public class FileOperations {
+    public static void main(String[] args)
+    {
+        File file= new File("D:\\Example.txt");
+ 
+        if (file.delete()) {
+            System.out.println("File deleted successfully");
+        }
+        else {
+            System.out.println("Failed to delete the file");
+        }
+    }
+}
+</pre>
+
+        <h3>getName method</h3>
+        <p>It returns the name of the file</p>
+        <pre>
+import java.io.*;
+  
+public class FileOperations {
+    public static void main(String args[])
+    {
+  
+        // try-catch block to handle exceptions
+        try {
+  
+            // Create a file object
+            File f = new File("D:\\Example.txt");
+  
+            // Get the Name of the given file f
+            String Name = f.getName();
+  
+            // Display the file Name of the file object
+            System.out.println("File Name : " + Name);
+        }
+        catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+} 
+</pre>
+
+        <h3>getAbsolutePath method</h3>
+        <p>It returns the absolute pathname of the file</p>
+        <pre>
+import java.io.*;
+  
+public class FileOperations {
+    public static void main(String args[])
+    {
+  
+        // try-catch block to handle exceptions
+        try {
+  
+            // Create a file object
+            File f = new File("Example.txt");
+  
+            // Get the absolute path of file f
+            String absolute = f.getAbsolutePath();
+  
+            // Display the file path of the file object
+            // and also the file path of absolute file
+            System.out.println("Original  path: " + f.getPath());
+            System.out.println("Absolute  path: "+ absolute);
+        }
+        catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+}
+</pre>
+
+        <h3>length Method</h3>
+        <p>It returns the size of the file in bytes</p>
+        <pre>
+import java.io.*;
+ 
+public class FileOperations {
+    public static void main(String args[])
+    {
+ 
+        // Get the file
+        File f = new File("D:\\Example.txt");
+ 
+        // Get the length of the file
+        System.out.println("length: " + f.length());
+    }
+} 
+</pre>
+
+        <h3>list Method</h3>
+        <p>It returns an array of the files in the directory</p>
+        <pre>
+import java.io.*;
+  
+public class FileOperations {
+    public static void main(String args[])
+    {
+  
+        // try-catch block to handle exceptions
+        try {
+  
+            // Create a file object
+            File f = new File("f:\\Examples");
+  
+            // Get all the names of the files present
+            // in the given directory
+            String[] files = f.list();
+  
+            System.out.println("Files are:");
+  
+            // Display the names of the files
+            for (int i = 0; i < files.length; i++) {
+                System.out.println(files[i]);
+            }
+        }
+        catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+}
+</pre>
+
+        <h3>mkdir method</h3>
+        <p>It is used to create a new directory</p>
+        <pre>
+import java.io.*;
+  
+public class FileOperations {
+  
+    public static void main(String args[])
+    {
+        // create an abstract pathname (File object)
+        File f = new File("D:\\program");
+  
+        // check if the directory can be created
+        // using the abstract path name
+        if (f.mkdir()) {
+  
+            // display that the directory is created
+            // as the function returned true
+            System.out.println("Directory is created");
+        }
+        else {
+            // display that the directory cannot be created
+            // as the function returned false
+            System.out.println("Directory cannot be created");
+        }
+    }
+}
+        </pre>
+
+        <h3>close method</h3>
+        <p>It is used to close the file</p>
+        <pre>
+import java.io.File;
+import java.io.FileInputStream;
+  
+public class FileOperations {
+  
+    public static void main(String[] args)
+    {
+  
+        // Creating file object and specifying path
+        File file = new File("file.txt");
+  
+        try {
+            FileInputStream input= new FileInputStream(file);
+            int character;
+            // read character by character by default
+            // read() function return int between
+            // 0 and 255.
+  
+            while ((character = input.read()) != -1) {
+                System.out.print((char)character);
+            }
+  
+            input.close();
+            System.out.println("File is Closed");
+            System.out.println(
+                "Now we will again try to read");
+            while ((character = input.read()) != -1) {
+                System.out.print((char)character);
+            }
+        }
+        catch (Exception e) {
+            System.out.println(
+                "File is closed. Cannot be read");
+            e.printStackTrace();
+        }
+    }
+}
+</pre>
+
+        <h3>To write something in the file</h3>
+        <pre>
+import java.io.FileWriter; // Import the FileWriter class
+import java.io.IOException; // Import the IOException class to handle errors
+
+public class WriteToFile 
+{
+  public static void main(String[] args) {
+  try 
+  {
+     FileWriter myWriter = new FileWriter("filename.txt"); 
+     myWriter.write("Laal Phool Neela Phool, Harry Bhaiya Beautiful");
+     myWriter.close();
+     System.out.println("Successfully wrote to the file.");
+   } 
+   catch (IOException e) 
+   {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+   }
+}
+}
+</pre>
+
+        <h2>Exception Handling</h2>
+        <p>An exception is an unusual condition that results in an interruption in the flow of the program.</p>
+
+        <h3>try-catch block</h3>
+        <p>try statement allow you to define a block of code to be tested for errors. catch block is used to handle the exception.</p>
+        <pre>
+try {
+// Statements
+}
+catch(Exception e) {
+// Statements
+}
+</pre>
+
+        <h3>Example</h3>
+        <pre>
+class Main {
+  public static void main(String[] args) {
+
+    try {
+      int divideByZero = 5 / 0;
+      System.out.println("Rest of code in try block");
+    }
+
+    catch (ArithmeticException e) {
+      System.out.println("ArithmeticException => " + e.getMessage());
+    }
+  }
+}   
+</pre>
+
+        <h3>finally block</h3>
+        <p>finally code is executed whether an exception is handled or not.</p>
+        <pre>
+try {
+//Statements
+}
+catch (ExceptionType1 e1) { 
+// catch block
+}
+finally {
+// finally block always executes
+}
+</pre>
+
+        <h3>Example</h3>
+        <pre>
+class Main {
+  public static void main(String[] args) {
+    try {
+      int divideByZero = 5 / 0;
+    }
+
+    finally {
+      System.out.println("Finally block is always executed");
+    }
+  }
+}
+</pre>
+
+        <a href="../assets/pdf/Java_Cheatsheet.pdf" download="Java_Cheatsheet.pdf">Download this Cheatsheet</a>
+    </section> 
+</body>
+</html

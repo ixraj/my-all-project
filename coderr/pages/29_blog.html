@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS ideas to spark your Web page</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>CSS ideas to spark your Web page</h1>
+        <h3>Introduction</h3>
+        <p><b>C</b>ascading <b>S</b>tyle <b>S</b>heets referred to as CSS, is a simple design language intended to simplify the process of making web pages presentable. CSS is not a programming language. It's not a markup language either. <b>CSS is a style sheet language.</b> CSS is what you use to style HTML elements selectively. Learning new CSS tricks is one of the best ways to shake up your website design. <br>
+        Here are a few of the helpful CSS tricks that will definitely help.</p>
+        
+        <h4 class="blog_29">1.Selection in CSS</h4>
+        <p>On the web, we select content for different reasons. Maybe we want to copy a text and quote it somewhere, or maybe copying is just a habit that some users do it make reading easier. Usually, when the user selects any text on the web page, it has a white color with a blue background as blue. Why keep your webpage simple and the same as others. Here is an amazing trick.</p>
+        <pre>p::selection{
+        background-color: pink;
+        color: rgb(235, 23,41);
+}</pre>
+        <p>The above code has a function of displaying red text with background color pink when selected.</p>
+        <img src="../assets/images/29_base64.webp" alt="image-base64">
+
+        <h4 class="blog_29">2.Why use more space?</h4>
+        <p>The CSS <b>overflow-x</b> property defines what to do when content overflows the content box horizontally (i.e., left and right), such as displaying the content outside of the content box, clipping the content, or displaying a horizontal scroll bar.</p>
+        <pre> div { overflow-x: hidden; }</pre>
+        <p>In that above line of code, the content is clipped, the overflow content is hidden, and no horizontal scroll bar is displayed. This will display the webpage with no scroll bar horizontally, and hence no space will be wasted.</p>
+        <p>Note: Various other parameters are also available with overflow-x.</p>
+        <img class="blog_29" src="../assets/images/29_base64_EEh0xZ7.webp" alt="image-base64_EEh0x27">
+
+        <h4 class="blog_29">3.Negation pseudo-class</h4>
+        <p>For selecting an element that doesn't have a certain class and in the case of multiple classes, the ":not()" selector is used.</p>
+        <pre>body:not(p){
+        color:purple;
+}</pre>
+        <p>The above code will not apply the color purple for the tag &lt;p&gt;.</p>
+        <img class="blog_29" src="../assets/images/29_base64_ejcsYOF.webp" alt="base64_ejcsYOF">
+
+        <h4 class="blog_29">4.Blend Mode</h4>
+        <p>With background-blend mode, we define the blending between the element's background image and its background color.</p>
+        <pre>body {
+        background-image : url(p1.jpg);
+        background-color: purple;
+        background-blend-mode :screen;
+}</pre>
+        <img src="../assets/images/29_base64_PSzNYGJ.webp" alt="base64_PSzNYGJ">
+
+        <h4 class="blog_29">5.Scroll behavior control</h4>
+        <p>The <b>scroll-behavior</b>property specifies whether to smoothly animate the scroll position, instead of a straight jump, when the user clicks on a link within a scrollable box.</p>
+        <pre>*{
+        padding: 0;
+        margin: 0;
+        scroll-behaviour: smooth;
+}</pre>
+        <p>This can be useful when you want to move from down to top just by the click of a button</p>
+    </section>
+</body>
+</html>

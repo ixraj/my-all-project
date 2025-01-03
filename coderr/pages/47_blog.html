@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Solved] pip : The term 'pip' is not recognized as the name of a cmdlet, function, script file, or operable program.</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>If you've ever come across the "the term pip is not recognized..." error, you know how frustrating it can be.</h1>
+        <p>If you've ever come across the "the term pip is not recognized..." error, you know how frustrating it can be.</p>
+        <pre>
+pip : The term 'pip' is not recognized as the name of a cmdlet, functioscript file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the pais correct and try again.
+At line:1 char:1
++ pip
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (pip: String) [CommandNotFoundException
+    + FullyQualifiedErrorId: CommandNotFoundException
+        </pre>
+        <p>This common issue is related to Python's package manager, pip, not being recognized by the system.</p>
+        <p>Here's a quick and simple guide to resolving this problem:</p>
+
+        <h2>Step 1: Ensure Python is Installed</h2>
+        <p>Now this will sound very naive but make sure you have Python installed on your system. If Python was not previously installed on your system, this step will solve the problem for you.</p>
+        <p>You can download Python from the <a href="https://www.python.org/downloads/">official Python website.</a></p>
+        <img class="blog_47" src="../assets/images/47_python-homepage-download.png" alt="image-1">
+        <p>While installing Python, make sure you check the box which says "Add Python to the environment variables" as shown below:</p>
+        <img class="blog_47" src="../assets/images/47_python-install-with-path.png" alt="image-2">
+
+        <h2>Step 2: Add Python and pip to Your Path</h2>
+        <p>Adding Python and pip to your system's Path variable ensures that your command line interface recognizes these tools.</p>
+        <p>This error primarily occurs when the system cannot locate the location where Python is installed. Let's fix this by adding Python and pip to the path</p>
+        <p>Here's how you can add Python and pip to your path:</p>
+        <ol>
+            <li>Click on your search icon beside the windows icon and type "Environment Variables"</li>
+            <img class="blog_47" src="../assets/images/47_step-1-search-for-environment-variables.png" alt="image-3">
+            <li> Click on the first option "Edit the system Environment Variables". A System Properties window will open. Click on "Environment Variables"</li>
+            <img class="blog_47" src="../assets/images/47_step2-system-properties.png" alt="image-4">
+            <li>Select Path and click on "Edit"</li>
+            <img class="blog_47" src="../assets/images/47_step-3-select-path.png" alt="image-5">
+            <li>Click "New" and add the <code> &lt;location of Python installation&gt; and &lt;Python location&gt;/Scripts</code>one by one.</li>
+            <img class="blog_47" src="../assets/images/47_step-4-click-new.png" alt="image-6">
+        </ol>
+        <p class="blog_47">You can find the location of your Python installation by typing 'python' in your system's search bar and checking the file path. For me the location of the Python installation is <code>"C:\Users\iitia\AppData\Local\Programs\Python\Python311".</code>  Hence I will add <code>"C:\Users\iitia\AppData\Local\Programs\Python\Python311"</code> and <code>"C:\Users\iitia\AppData\Local\Programs\Python\Python311\Scripts"</code>  to the path. <br>
+        Here is what my Python installation folder looks like:</p>
+        <img class="blog_47" src="../assets/images/47_python-installation-folder.png" alt="image-7">
+        <p>You have to copy this path and add it as an environment variable by pasting it in the edit environment variable dialogue box:</p>
+        <img class="blog_47" src="../assets/images/47_python-path.png" alt="image-8">
+        <p>and then open the Scripts folder and copy this path and again click new and add it to the environment variable:</p>
+        <img class="blog_47" src="../assets/images/47_python-scripts-path_.png" alt="image-9">
+        <p>Your "Edit environment variables" dialogue box will look something like this:</p>
+        <img class="blog_47" src="../assets/images/47_edit-environment-variable-dialogue.png" alt="image-10">
+        <p>Click "Ok" to close all the dialogue boxes, and you are almost done!</p>
+
+        <h2>Step 3: Restart Your Terminal</h2>
+        <p>Make sure you restart your terminal to apply the changes. Now try to run a pip command, and it should work without any errors.</p>
+        <img class="blog_47" src="../assets/images/47_working-pip.png" alt="image-11">
+
+        <h2>Conclusion</h2>
+        <p>Fixing the "the term pip is not recognized..." error is a straightforward process once you know the steps. By ensuring that Python and pip are correctly installed and configured, you'll have a smooth coding experience.</p>
+        <p>If you are not able to find your Python installation folder, it's always recommended to reinstall Python as it will save you a lot of time. While installing Python, make sure you check the box which says "Add Python to the Path". Happy coding!</p>        
+    </section>
+</body>
+</html>

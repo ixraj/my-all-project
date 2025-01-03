@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All MongoDb commands you will ever need (MongoDb Cheatsheet)</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>All MongoDb commands you will ever need (MongoDb Cheatsheet)</h1>
+        <p>In this post, we will see a comprehensive list of all the MongoDB commands you will ever need as a MongoDB beginner. This list covers almost all the most used commands in MongoDB.</p>
+        <p>I will assume that you are working inside a collection named 'comments' on a MongoDB database of your choice</p>
+
+        <h2>1. Database Commands</h2>
+        <h3>View all databases</h3>
+        <pre>show dbs</pre>
+
+        <h3>Create a new or switch databases </h3>
+        <pre>use dbName</pre>
+
+        <h3>View current Database</h3>
+        <pre>db</pre>
+
+        <h3>Delete Database </h3>
+        <pre>db.dropDatabase()</pre>
+
+        <h2>2. Collection Commands</h2>
+        <h3>Show Collections</h3>
+        <pre>show collections</pre>
+
+        <h3>Create a collection named 'comments'</h3>
+        <pre>db.createCollection('comments')</pre>
+
+        <h3>Drop a collection named 'comments'</h3>
+        <pre>db.comments.drop()</pre>
+
+        <h2>3. Row(Document) Commands</h2>
+        <h3>Show all Rows in a Collection </h3>
+        <pre>db.comments.find()</pre>
+
+        <h3>Show all Rows in a Collection (Prettified)</h3>
+        <pre>db.comments.find().pretty()</pre>
+
+        <h3>Find the first row matching the object</h3>
+        <pre>db.comments.findOne({name: 'Harry'})</pre>
+
+        <h3>Insert One Row</h3>
+        <pre>
+db.comments.insert({
+    'name': 'Harry',
+    'lang': 'JavaScript',
+    'member_since': 5
+ })     
+</pre>
+        <h3>Insert many Rows</h3>
+        <pre>
+db.comments.insertMany([{
+    'name': 'Harry',
+    'lang': 'JavaScript',
+    'member_since': 5
+    }, 
+    {'name': 'Rohan',
+    'lang': 'Python',
+    'member_since': 3
+    },
+    {'name': 'Lovish',
+    'lang': 'Java',
+    'member_since': 4
+}])</pre>
+
+        <h3>Search in a MongoDb Database</h3>
+        <pre>db.comments.find({lang:'Python'})</pre>
+
+        <h3>Limit the number of rows in output</h3>
+        <pre>db.comments.find().limit(2)</pre>
+
+        <h3>Count the number of rows in the output</h3>
+        <pre>db.comments.find().count()</pre>
+
+        <h3>Update a row</h3>
+        <pre>
+db.comments.updateOne({name: 'Shubham'},
+{$set: {'name': 'Harry',
+    'lang': 'JavaScript',
+    'member_since': 51
+}}, {upsert: true})
+</pre>
+
+        <h3>Mongodb Increment Operator</h3>
+        <pre>
+db.comments.update({name: 'Rohan'},
+{$inc:{
+    member_since: 2
+}})
+</pre>
+
+        <h3>Mongodb Rename Operator</h3>
+        <pre>
+db.comments.update({name: 'Rohan'},
+{$rename:{
+    member_since: 'member'
+}})</pre>
+
+        <h3>Delete Row </h3>
+        <pre>db.comments.remove({name: 'Harry'})</pre>
+
+        <h3>Less than/Greater than/ Less than or Eq/Greater than or Eq</h3>
+        <pre>db.comments.find({member_since: {$lt: 90}})</pre>
+        <pre>db.comments.find({member_since: {$lte: 90}})</pre>
+        <pre>db.comments.find({member_since: {$gt: 90}})</pre>
+        <pre>db.comments.find({member_since: {$gte: 90}})</pre>
+    </section>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to install Ubuntu Desktop with Full GUI on an Ubuntu VPS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>How to install Ubuntu Desktop with Full GUI on an Ubuntu VPS</h1>
+        <p>This post will explain to you how to install ubuntu-desktop on Ubuntu VPS. Follow the steps below:</p>
+
+        <h2>Step 1 - Installing Ubuntu desktop using tasksel</h2>
+        <p>Let's update the server's package index using the command below:</p>
+        <pre>sudo apt update</pre>
+        <p>Install tasksel using the command below:</p>
+        <pre>sudo apt install tasksel</pre>
+        <p>Now run tasksel and choose ubuntu-desktop using the spacebar</p>
+        <pre>sudo tasksel</pre>
+        
+        <h2>Step 2 - Reboot the system</h2>
+        <p>Execute the following command to reboot the VPS:</p>
+        <pre>sudo reboot</pre>
+
+        <h2>Step 3 - Install xrdp</h2>
+        <p>Let's install xrdp using the command below:</p>
+        <pre>apt install xrdp</pre>
+        <p>Enable xrdp using the command below:</p>
+        <pre>systemctl enable xrdp</pre>
+        <p>Finally, enable graphical target using the command below:</p>
+        <pre>sudo systemctl set-default graphical.target</pre>
+        <p>You should now be able to connect using the Windows Remote Desktop Connection. Enter the IP of your VPS followed by the username and password of your non-root account and start using Ubuntu Desktop</p>
+
+        <h2>Step 4 - Customize Ubuntu Desktop like Windows (Optional)</h2>
+        <p>You can customize your Ubuntu desktop installation to get a taskbar and taskbar icons like windows. Execute the command below to install </p>
+        <pre>sudo apt install gnome-shell-extensions gnome-shell-extension-dash-to-panel gnome-tweaks adwaita-icon-theme-full</pre>
+        <p>Reboot your Ubuntu server. Next, log in using RDP and search for Tweaks, and click extension. </p>
+        <p>Under extensions, enable "Dash to panel" extension and you will see the taskbar and application icons on your taskbar. Your ubuntu installation will look like windows. Happy Coding!</p>
+    </section>
+</body>
+</html>

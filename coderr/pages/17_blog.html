@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crontab as fast as possible!</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>Crontab as fast as possible!</h1>
+        <p>In this post, I will talk about the only crontab commands you will ever need if you are managing a web server. Crontab stands for cron table which is a list of commands that would automatically run at a scheduled interval of time.</p> 
+        <p>For instance, I run a bash file that prerenders all the routes from the CodeWithHarry blog. This saves me the time for manually doing the same when new blogs are added. You might want to update your sitemap, update your blog index or take backups every 24 hours, every week or every month.</p>
+
+        <h2>List all the cronjobs scheduled by the current user</h2>
+        <pre>crontab -l</pre>
+        <img class="blog_17" src="../assets/images/17_crontabl.webp" alt="crontabl">
+
+        <h2>Add a new cron job</h2>
+        <pre>crontab -e</pre>
+        <img class="blog_17" src="../assets/images/17_crontabe.webp" alt="crontabe">
+        <p>The following window will then open once you choose your editor by pressing 1 followed by enter:</p>
+        <img class="blog_17" src="../assets/images/17_crontab.webp" alt="crontab">
+        <p>Following are some of the ways you can add cronjobs to a Linux machine using the following command</p>
+        <pre>MIN HOUR DOM MON DOW CMD</pre>
+        <pre class="table"> 
+<strong>Field    Description    Allowed Value</strong>
+MIN      Minute field    0 to 59
+HOUR     Hour field      0 to 23
+DOM      Day of Month    1-31
+MON      Month field     1-12
+DOW      Day Of Week     0-6
+CMD      Command         Any command to be executed.</pre>
+        <p>Following will run the command /home/harry/backup.sh on 11:34 AM 17th May of every year:</p>
+        <pre>34 11 17 05 * bash /home/harry/backup.sh</pre>
+        <p>Following keywords makes the job of a programmer easy by providing keywords for quick job runs.</p>
+        <pre class="table">Keyword    Equivalent
+@yearly    0 0 1 1 *
+@daily     0 0 * * *
+@hourly    0 * * * *
+@reboot    Run at startup.</pre>
+        <p>1. The following command will execute the backup.sh file daily:</p>
+        <pre>@daily bash /home/harry/backup.sh</pre>
+        <p>2. The following command will execute the backup.sh file monthly:</p>
+        <pre>@monthly bash /home/harry/backup.sh</pre>
+        <p>3. The following command will execute the backup.sh file yearly:</p>
+        <pre>@yearly bash /home/harry/backup.sh</pre>
+        <p>For anything more than this, you can always refer to the <a href="https://man7.org/linux/man-pages/man8/cron.8.html" target="_blank">Linux Manpage for Cron</a> Hope this article helps. Happy Coding!</p>
+    </section>
+</body>
+</html>

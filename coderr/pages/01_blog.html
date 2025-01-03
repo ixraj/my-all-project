@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to download VS Code on Android Phone?</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <section>
+        <h1>How to install VS Code on an Android Phone?</h1>
+        <p>In this post, we will see how you can install VS Code on an Android device. We will use one of the most popular Android terminal applications called Termux.</p>
+        <p><b>Updated August 2023:</b> <i>There have been some changes with Termux due to which the official play store app of Termux doesn't work, but don't worry, I will guide you on using VS Code on your Phone.</i></p>
+        <p>If you are a student who wants to code on your Android device using VS Code, this might be the best setup for you.</p>
+        <p>Follow the steps below:</p>
+
+        <h2>Step 1 - Install Termux</h2>
+        <p>In order to install VS Code, you will have to install the Termux app by downloading the apk using <a href="https://f-droid.org/en/packages/com.termux/" target="_blank">this link from F-Droid</a>.</p>
+        <img class="blog_1" src="../assets/images/1_image1.jpg" alt="image-1">
+        <p>The official release available on the play store doesn't seem to get the packages updated for some reason.</p>
+        <p>Termux from Play Store won't work. This is what the <a href="https://github.com/termux/termux-app#google-play-store-deprecated" target="_blank">official Termux GitHub repository</a> has to say:</p>
+        <article>
+            <p><i>"Termux and its plugins are no longer updated on <a href="https://play.google.com/store/apps/details?id=com.termux" target="_blank">Google Play Store</a> due to <a href="https://github.com/termux/termux-packages/wikiTermux-and-Android-10" target="_blank">Android 10 issues</a> and have been deprecated. The last version released for Android >= 7 was v0.101. It is highly recommended not to install Termux apps from Play Store anymore."</i></p>
+        </article>
+        <p>Open the downloaded apk and click "Open."</p>
+        <img class="blog_1" src="../assets/images/1_image2.jpg" alt="image-2">
+        <p>Now install the apk file. If you are prompted to go to settings and enable installation of apps from unknown sources, do that!</p>
+        <img class="blog_1" src="../assets/images/1_image3.jpg" alt="image-3">
+        <p>Open the Termux app, and you will see a screen like this:</p>
+        <img class="blog_1" src="../assets/images/1_image4.jpg" alt="image-4">
+
+        <h2>Step 2 - Install Ubuntu using Termux</h2>
+        <p>Enter the following command on Termux to update the package repository:</p>
+        <pre>pkg update</pre>
+        <img class="blog_1" src="../assets/images/1_image5.jpg" alt="image-5">
+        <p>When prompted, press 'y' and then press enter. You will have to press 'y' followed by enter every time you are prompted.</p>
+        <p>Now let's upgrade the packages using the following command in Termux:</p>
+        <pre>pkg upgrade</pre>
+        <p>Now let's install proot-distro using the following command:</p>
+        <pre>pkg install proot-distro</pre>
+        <p>Now let's list all the distros we can install using proot using the following command (this command is optional):</p>
+        <pre>proot-distro list</pre>
+        <p>You will see a screen like this:</p>
+        <img class="blog_1" src="../assets/images/1_image6.jpg" alt="image-6">
+        <p>Now fire this command, and Ubuntu will start to install on your Android phone:</p>
+        <pre>proot-distro install ubuntu</pre>
+        <p>Ubuntu will begin installing. You'll see a screen like this:</p>
+        <img class="blog_1" src="../assets/images/1_image7.jpg" alt="image-7">
+        <p>Now, start Ubuntu by firing the following command:</p>
+        <pre>proot-distro login ubuntu</pre>
+        <p>You will now see a <code>root@ubuntu</code> prompt in the terminal like this:</p>
+        <img class="blog_1" src="../assets/images/1_image8.jpg" alt="image-8">
+
+        <h2>Step 3 - Downloading Code Server</h2>
+        <p>While on Ubuntu, run the following command:</p>
+        <pre>apt update</pre>
+        <p>And the following command to upgrade the package repository:</p>
+        <pre>apt upgrade</pre>
+        <p>Press 'y' and enter whenever prompted.</p>
+        <p>Now install wget using the following command:</p>
+        <pre>apt install wget</pre>
+        <p>Again press 'y' and enter whenever prompted to confirm the installation. You now have wget installed!</p>
+        <p>We will now download the latest release of the code server from GitHub using the following command:</p>
+        <pre>wget https://github.com/coder/code-server/releases/download/4.16.1/code-server-4.16.1-linux-arm64.tar.gz</pre>
+        <img class="blog_1" src="../assets/images/1_image9.jpg" alt="image-9">
+        <p>Extract the tarball using the following command:</p>
+        <pre>tar -xvf ./code-server-4.16.1-linux-arm64.tar.gz</pre>
+        <p>The tarball will start extracting. Wait for the extraction to finish.</p>
+        <img class="blog_1" src="../assets/images/1_image10.jpg" alt="image-10">
+        <p>Enter the /bin folder of your code-server installation on Ubuntu (running on your phone):</p>
+        <pre>cd code-server-4.16.1-linux-arm64
+cd bin</pre>
+
+        <h2>Step 4 - Set up a password and start using VS Code</h2>
+        <p>Set up a password for your VS Code instance using the following command:</p>
+        <pre>export PASSWORD="password"</pre>
+        <p><b>Note:</b> I am using a very weak password for demonstration purposes as I will use this code-server locally on my phone. Consider using strong passwords for your serious projects.</p>
+        <p>Launch the code server using the following command:</p>
+        <pre>./code-server</pre>
+        <img class="blog_1" src="../assets/images/1_image11.jpg" alt="image-11">
+        <p>Now go to your browser (I am using Google Chrome for Android) and go to <code>localhost:8080</code>. You will finally see a screen like this:</p>
+        <img class="blog_1" src="../assets/images/1_image12.jpg" alt="image-12">
+        <p>After entering the password, you'll see the welcome screen:</p>
+        <img class="blog_1" src="../assets/images/1_image13.jpg" alt="image-13">
+        <p>You can now start coding on your Android device using VS Code!</p>
+        <img class="blog_1" src="../assets/images/1_image14.jpg" alt="image-14">
+        <p>Hope that worked for your phone. Please share your experiences, ask questions, or suggest improvements in the comments section. Happy Hacking!</p>
+
+        <h2>Caveats:</h2>
+        <p>1. If the update command doesn't work on your Termux or you get some other network errors, try to change the default repo by using the command below:</p>
+        <pre>termux-change-repo</pre>
+        <p>Change the repository to Mirror by Grimle and try the <code>pkg update</code> command again. It should work!</p>
+        <p>2. Whenever prompted, press 'y' and then press enter. You will have to press 'y' followed by enter every time you are prompted for it.</p>
+    </section>
+</body>
+
+</html>

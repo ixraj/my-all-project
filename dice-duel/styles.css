@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-color: #508C9B;
+    --secondary-color: #134B70;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --button-gradient: linear-gradient(166deg, #3a8294, #176da6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-center {
+    font-family: "Baloo Bhai 2", cursive;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.heading {
+    font-family: "Baloo Bhai 2", cursive;
+    font-size: 6rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: pulsate 2s ease-in-out infinite;
+}
+
+.dice-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 2rem;
+}
+
+.dice {
+    text-align: center;
+}
+
+.dice-img {
+    width: 100%;
+    max-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.dice-img:hover {
+    transform: scale(1.1);
+}
+
+.dice p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.roll-button {
+    font-family: "Baloo Bhai 2", cursive;
+    background: var(--button-gradient);
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.roll-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.roll-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+@keyframes pulsate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@media (max-width: 768px) {
+    .navbar-center {
+        font-size: 2rem;
+    }
+
+    .heading {
+        font-size: 3rem;
+    }
+
+    .dice-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .dice-img {
+        max-width: 120px;
+    }
+
+    .dice p {
+        font-size: 1.2rem;
+    }
+
+    .roll-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 2.5rem;
+    }
+
+    .dice-img {
+        max-width: 100px;
+    }
+
+    .dice p {
+        font-size: 1rem;
+    }
+}

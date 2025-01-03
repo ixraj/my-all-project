@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transferring Files, Passwordless login & Managing multiple servers</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>Transferring Files, Passwordless login & Managing multiple servers</h1>
+        <p>In this post, I will show you how to avoid entering passwords multiple times while managing your servers. Also, I will tell you few tricks I use to manage multiple servers efficiently. Let's start with uploading files to the server</p>
+
+        <h2>Uploading files to your server</h2>
+        <p>In order to upload files to your server, you can use an SFTP client like Filezilla which simply can be used by entering your server IP, username, and password. Follow the steps below:</p>
+
+        <h3>Step 1 - Download and install Filezilla</h3>
+        <p>FileZilla Client is a fast and reliable cross-platform FTP, FTPS, and SFTP client with lots of useful features and an intuitive graphical user interface. Download this free software <a href="https://filezilla-project.org/download.php" target="_blank">from here</a></p>
+        <img class="blog_27" src="../assets/images/27_1.webp" alt="image-1">
+        <p>Install Filezilla on your computer and open it.</p>
+
+        <h3>Step 2 - Login to your server using FileZilla</h3>
+        <p>Enter your server IP, username, and password inside the boxes at the top in FileZilla. Make sure your enter 22 as the port. Press enter and wait for some time.</p>
+        <img class="blog_27" src="../assets/images/27_2.webp" alt="image-2">
+
+        <h3>Step 3 - Uploading files to your server</h3>
+        <p>You can now upload files to your server by navigating to the directory of your choice and dragging/dropping your files into the folder(on your server) of your choice.</p>
+
+        <h2>Enabling passwordless login to your server</h2>
+        <p>Every time we need to log in to our server, we type 'ssh user@ip-address' command followed by the strong password which is quite cumbersome. <br>
+        We can avoid typing this strong password without having to compromise security by authorizing our machine to log in to the server without the password every time we type a single (short) command. Follow the steps below:</p>
+
+        <h3>Step 1 - Create a private-public key pair</h3>
+        <p>We can create a private-public key pair using ssh-keygen. Execute the following command on your server:</p>
+        <pre>ssh-keygen -t rsa</pre>
+        <p>This generates a private-public key pair on your computer. Press enter 3 times to choose the default options.</p>
+        <img class="blog_27" src="../assets/images/27_3.webp" alt="image-3">
+
+        <h3>Step 2 - Deploy ssh key on your server</h3>
+        <p>Login to your server using ssh(preferably non-root user) and password and execute the following command:</p>
+        <pre>cd ~
+mkdir .ssh</pre>
+        <P>This will create a .ssh in the home directory ('/home/harry/' in my case) of your user. DigitalOcean droplet ships with a root account so creating this '.ssh' directory is not needed if you want to configure serverless login for root. <br>
+        Execute the following command on your host computer:</P>
+        <pre>scp C:\Users\Harry\.ssh\id_rsa.pub harry@165.232.177.116:~/.ssh/authorized_keys</pre>
+        <p>Replace 'C:\Users\Harry' with your user home directory on Windows. You will be prompted for the password. Enter your password and your ssh key will be deployed.</p>
+
+        <h3>Step 3 - Test your passwordless login</h3>
+        <p>Try to log into your server by entering the following command. Replace user with your username and ip-address with your server's ip address</p>
+        <pre>ssh user@ip-address</pre>
+        <img class="blog_27" src="../assets/images/27_4.webp" alt="image-4">
+
+        <h2>Quick login using Powershell profiles</h2>
+        <p>If you are using Windows Powershell, you can use PowerShell profiles to efficiently log in to multiple servers. Personally, I manage multiple servers including the one which hosts this site. I need to switch from a personal server to my client's server on a very regular basis. It gets hectic to remember multiple passwords and type them repeatedly. Hence I use PowerShell functions to manage multiple servers. If you are overwhelmed, don't! This is easier than you think and once you configure it you will never look back. Follow the below steps:</p>
+        
+        <h3>Step 1 - Create a PowerShell profile</h3>
+        <p>Create a PowerShell profile using the command below:</p>
+        <pre> New-Item $profile -Type File -Force</pre>
+        <p>This creates a PowerShell profile that will execute whenever you start PowerShell on your computer.</p>
+        <img class="blog_27" src="../assets/images/27_5.webp" alt="image-5">
+
+        <h3>Step 2 - Open and add a function to the PowerShell profile</h3>
+        <p>Open your PowerShell profile by executing the following command on Windows:</p>
+        <pre>notepad $profile</pre>
+        <p>As a part of the next step, we will add few functions to our PowerShell profile. Paste the following code to your profile</p>
+        <pre>echo "Hello Harry, Welcome to PowerShell. Your profile works!" 
+
+function personal{
+    Start-Process ssh harry@189.59.45.126
+}
+            
+function client1{
+    Start-Process ssh harry@139.39.45.126
+}
+            
+function client2{
+    Start-Process ssh root@239.59.45.126
+}</pre>
+        <P>Replace the usernames and IP addresses with the actual values of your servers. Finally, save and close the file.</P>
+        <img class="blog_27" src="../assets/images/27_6.webp" alt="image-6">
+
+        <h3>Step 3 - Test your profile</h3>
+        <p>If you don't restart PowerShell you will see an error like this:</p>
+        <pre>PS C:\Users\Harry> notepad $profile
+PS C:\Users\Harry> client2
+client2 : The term 'client2' is not recognized as the name of a cmdlet,
+function, script file, or operable program. Check the spelling of the name, or
+if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ client2
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (client2:String) [CommandNotFou
+    ndException
+    + FullyQualifiedErrorId : CommandNotFoundException</pre>
+        <P>Restart your PowerShell and type client2:</P>
+        <img class="blog_27" src="../assets/images/27_7.webp" alt="image-7">
+        <p>Your profile should now work. Close all the PowerShell instances and reopen PowerShell. Now try to execute any one of the following commands:</p>
+        <pre>personal</pre>
+        <pre>client1</pre>
+        <pre>client2</pre>
+        <p>Wow we are now able the server we created for our client by issuing a single word command ir 'client1' <br>
+        Note: You can always configure serverless login for a root user but using a root accounts for day-to-day activities is not recommeneded. <br>
+        You can configure as many servers as you want of your choice. Hope you understood and will start incorporating this into your server workflows. Happy Coding!</p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50 Linux Commands You Should Know</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>50 Linux Commands You Should Know</h1>
+        <ul>
+            <li>ls - list the files and directories in the current directory</li>
+            <pre>ls</pre>
+            <li>cd - change the current directory</li>
+            <pre>cd dir_name</pre>
+            <li>mkdir - create a new directory</li>
+            <pre>mkdir rohan</pre>
+            <li>rmdir - remove a directory</li>
+            <pre>rmdir rohan</pre>
+            <li>pwd - print the current working directory</li>
+            <pre>pwd</pre>
+            <li>cp - copy files or directories</li>
+            <pre>#We will copy a file called example.txt from the current directory to a directory called backup
+cp example.txt backup/</pre>
+            <li>mv - move or rename files or directories</li>
+            <pre>mv example.txt backup/</pre>
+            <li>rm - remove files or directories</li>
+            <pre>rm example.txt</pre>
+            <li>touch - create a new empty file or update the timestamp of an existing file</li>
+            <pre>touch shayan.txt</pre>
+            <li>cat - concatenate and display files</li>
+            <pre>cat example.txt</pre>
+            <li>man - manual for a command</li>
+            <pre>man ls</pre>
+            <li>htop - an interactive process viewer and system monitor</li>
+            <pre>htop</pre>
+            <li>chmod - change the permissions of a file or directory</li>
+            <pre># The first digit represents the owner of the file/directory
+# The second digit represents the group that the file/directory belongs to
+# The third digit represents all other users
+# 0 (no permission)
+# 1 (execute only)
+# 2 (write only)
+# 3 (write and execute)
+# 4 (read only)
+# 5 (read and execute)
+# 6 (read and write)
+# 7 (read, write, and execute)
+                
+chmod 700 file.txt</pre>
+            <li>chown - change the owner of a file or directory</li>
+            <pre>chown new_owner example.txt</pre>
+            <li>tar - create or extract compressed archive files</li>
+            <pre># x: extract files from an archive
+# t: list the contents of an archive
+# r: append files to an existing archive
+# z: use gzip compression
+# j: use bzip2 compression
+# cf: create file
+#xf: extract file
+tar cf archive.tar file1 file2 file3</pre>
+            <li>gzip - compress files</li>
+            <pre>gzip file.txt</pre>
+            <li>gunzip - decompress compressed files</li>
+            <pre>gunzip file.txt.gz</pre>
+            <li>ssh - connect to a remote server securely</li>
+            <pre>ssh username@server_address</pre>
+            <li>scp - securely copy files between systems</li>
+            <pre>scp myfile.txt user@remotehost:/home/user/</pre>
+            <li>ping - test network connectivity</li>
+            <pre>ping 8.8.8.8</pre>
+            <li>ifconfig - display or configure network interfaces</li>
+            <pre>ifconfig</pre>
+            <li>netstat - display network connection information</li>
+            <pre>netstat</pre>
+            <li>route - view or configure network routing tables</li>
+            <pre>route [options] [add/delete/show]</pre>
+            <li>top - display system resource usage and processes</li>
+            <pre>top</pre>
+            <li>ps - display information about running processes</li>
+            <pre>ps aux</pre>
+            <li>kill - terminate a process</li>
+            <pre>kill [PID]</pre>
+            <li>systemctl - control system services and settings</li>
+            <pre># Start the nginx service
+systemctl start nginx
+                
+# Check the status of the nginx service
+systemctl status nginx
+                
+# Stop the nginx service
+systemctl stop nginx</pre>
+            <li>service - control system services</li>
+            <pre>service apache2 start</pre>
+            <li>useradd - add a new user to the system</li>
+            <pre>useradd harry</pre>
+            <li>passwd - change the password for a user</li>
+            <pre>passwd harry</pre>
+            <li>userdel - delete a user from the system</li>
+            <pre>userdel harry</pre>
+            <li>su - switch user to become another user</li>
+            <pre>su john</pre>
+            <li>sudo - execute a command as another user or with elevated privileges</li>
+            <pre>sudo</pre>
+            <li>uptime - display system uptime and load average</li>
+            <pre>uptime</pre>
+            <li>df - display disk space usage</li>
+            <pre>df</pre>
+            <li>du - display disk usage by file or directory</li>
+            <pre>du</pre>
+            <li>mount - mount a fvgyile system</li>
+            <pre>sudo mount /dev/sdb1 /mnt/usb</pre>
+            <li>umount - unmount a file system</li>
+            <pre>sudo umount /mnt/usb</pre>
+            <li>date - display or set the system date and time</li>
+            <pre>date</pre>
+            <li>whoami - display the current user name</li>
+            <pre>whoami</pre>
+            <li>which - locate a program or command in the system path</li>
+            <pre>ls</pre>
+            <li>finger - displays all the information about user</li>
+            <pre>finger harry</pre>
+            <li>uname - display system information</li>
+            <pre>uname
+uname -a</pre>
+            <li>history - display a list of previously executed commands</li>
+            <pre>history</pre>
+            <li>echo - display text or variables to the console</li>
+            <pre>echo 'I need Tshirt from codeswear!'</pre>
+            <li>tee - redirect output to both a file and the console</li>
+            <pre>$ ls | tee file.txt</pre>
+            <li>locate - locate any file on the system</li>
+            <pre>locate file.txt</pre>
+            <li>sort - sort lines of text in a file or input</li>
+            <pre>cat file.txt
+banana
+orange
+apple
+sort file.txt
+apple
+banana
+orange</pre>
+            <li>uniq - remove duplicate lines from a file or input</li>
+            <pre>cat file.txt
+apple
+orange
+banana
+apple
+banana
+uniq file.txt
+apple
+orange
+banana</pre>
+            <li>head/tail - display the first/last few lines of a file or input</li>
+            <pre>#display first 10 lines
+head file.txt
+                
+#display last 10 lines
+tail file.txt</pre>
+        </ul>
+    </section>
+</body>
+</html>

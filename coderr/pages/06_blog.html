@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build an Email Validator with HTML, CSS, and JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <section>
+        <h1>Build an Email Validator with HTML, CSS, and JavaScript</h1>
+        <p>In this tutorial, we will create an Email Validator using HTML, CSS, and JavaScript. We will build and use this <a href="https://emailvalidation.io/email-validation-api/" target="_blank">Email Validation API</a> to validate a given email address. The objective of this blog is to understand how HTML, CSS, and JavaScript can be used along with this Email Validation API to create a useful website.</p>
+
+        <h2>Project Demo</h2>
+        <p>This is how our final email validator will look like:</p>
+        <video class="blog_6" src="../assets/video/6_final-app-on-pc.mp4" loop autoplay muted controls></video>
+        <p>This Email validator is also responsive and on a mobile phone it looks something like this:</p>
+        <video class="blog_6_mobile" src="../assets/video/6_final-app-on-mobile.mp4" loop autoplay muted controls></video>
+
+        <h2>HTML Structure of our Email Validator</h2>
+        <p>We will use a very basic HTML structure for our email validator. Now, we will start adding a form where we will take the desired information as email input and we will also add a button to submit the information. Now, all that's left is the output. We will also add the output part as a normal container. <br> Here is the HTML code of our email validator without any styling.</p>
+        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;iValidate - Email Validator for your Business&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;div class="logo"&gt;
+                &lt;img src="img/email.svg" alt="email svg"&gt;
+                &lt;span&gt;iValidate&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/"&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;div class="container"&gt;
+            &lt;h1&gt;Enter your email to validate&lt;/h1&gt;
+            &lt;form action="/submit" method="post"&gt;
+                &lt;!-- Input Filed to Validate Email Address --&gt;
+                &lt;input placeholder="Enter your email to validate" type="text" id="username" name="username" required&gt;
+                &lt;br&gt;&lt;br&gt;
+                &lt;!-- Submit button --&gt;
+                &lt;input id="submitBtn" class="btn" type="submit" value="Submit"&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+        &lt;div class="container"&gt;
+            &lt;h2&gt;Your Results&lt;/h2&gt;
+            &lt;div id="resultCont"&gt;
+                Your results will show here
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        Copyright | iValidate.com | All Rights reserved
+    &lt;/footer&gt;
+    &lt;script src="js/index.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        <p><i><b>Note to Readers</b>: You may notice links in the navigation bar like "/about" and "/contact." These pages are placeholders, and you can add these pages to your website if you wish to. This is how our website will look like after adding the basic HTML structure:</i></p>
+        <img class="blog_6" src="../assets/images/6_without-css.png" alt="images">
+        <p>I know, this does not look good at all. Let's add some CSS to beautify the website:</p>
+
+        <h2>Adding CSS to our Email Validator Website</h2>
+        <p>We will add CSS styles including media queries to make our Email validator website responsive. This will help our mobile users use our email validator. The raw HTML code looks a little ugly. Let's add the below CSS to style our Email validator:</p>
+        <pre>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,700;1,300&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 19px 12px;
+}
+
+ul {
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+    padding: 0 13px;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+ul > li > a:hover {
+    color: rgb(192, 189, 205);
+}
+
+main {
+    min-height: 100vh;
+}
+
+.logo img {
+    width: 15px;
+    filter: invert(1);
+}
+
+.container {
+    max-width: 80vw;
+    margin: auto;
+    padding: 9px 15px;
+}
+
+.container h1 {
+    padding: 12px 0;
+}
+
+input[type='text'] {
+    min-width: 23vw;
+    padding: 3px 12px;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.btn {
+    background: black;
+    color: white;
+    padding: 9px 12px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#resultCont div::first-letter {
+    text-transform: uppercase;
+}
+
+footer {
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        font-size: 12px;
+    }
+
+    input[type='text'] {
+        width: 100%;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .logo {
+        padding: 6px 0;
+        font-size: 12px;
+    }
+
+    .logo span {
+        font-size: 20px;
+    }
+
+    .logo img {
+        width: 15px;
+        filter: invert(1);
+    }
+}
+</pre>
+        <p>After adding all the relevant styles, this is how our webpage will look:</p>
+        <img class="blog_6" src="../assets/images/6_with-css.png" alt="images">
+        <p>We are done with the frontend part. Now, we will start coding the logic where we will use the Email Validation API to gather and validate email addresses.</p>
+
+        <h2>JavaScript - Adding the Logic</h2>
+        <p>We will be using Email Validation API for this application. EmailValidation.io provides us with a robust email validation API which is the perfect API for our email validation app. Navigate to <a href="https://app.emailvalidation.io/login" target="_blank">this login page</a> and create your account. You can use the free plan as it gives us 1 API Key & 100 free requests per month. If you need it for a large-scale application, you can purchase a subscription to this API. Let's start by creating a new file called index.js inside the js folder. Now, in index.js, we will use the following code to validate email using the Email Validation API.</p>
+        <pre>
+submitBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    console.log("Clicked!");
+    resultCont.innerHTML = `&lt;img width="123" src="img/loading.svg" alt=""&gt;`;
+    let key = "YOUR-API-KEY";
+    let email = document.getElementById("username").value;
+    let url = `https://api.emailvalidation.io/v1/info?apikey=${key}&email=${email}`;
+    let res = await fetch(url);
+    let data = await res.json();
+
+    // handle response
+    if (data.result === "success") {
+        resultCont.innerHTML = "Email is valid!";
+    } else if (data.result === "error") {
+        resultCont.innerHTML = data.reason;
+    }
+});</pre>
+        <h3>Explanation</h3>
+        <p>Let's understand the code. In this code, we have added an event listener in the submitBtn, which prevents the default action of the button, which is to submit the form. This is done by calling the preventDefault() method. Then, the code logs a message to the console indicating that the button has been clicked. This is just for debugging purposes. Then, the code clears the contents of the resultCont element. This element will be used to display the results of the validation. Then, the code fetches the API key from the key variable. The API key is used to authenticate the request to the Email Validation API.</p>
+        <p>Make sure to change this line to your own API key. You can get your own API Key by logging in to your <a href="https://emailvalidation.io/">EmailValidation.io</a> account.</p>
+        <pre>let key = "YOUR-API-KEY"</pre>
+        <p>Now, the code gets the email address (the email address that will be validated) from the username input element. Next, the code constructs a URL for the Email Validation API. The URL includes the API key and the email address that will be validated. Then, the code makes a request to the Email Validation API. The await keyword is used to ensure that the API request is completed before the rest of the code is executed. Finally, the code parses the response from the API as JSON. The JSON response contains the results of the validation. The code then loops over the properties of the result object. For each property, the code checks if the value is not empty or a space. If the value is not empty or a space, the code adds a new &lt;div&gt; element to the str string with the property name and value. Finally, the code logs the str string to the console and sets the contents of the resultCont element to the str string.</p>
+        <p>Now our application is finished and this is how it will look:</p>
+        <video class="blog_6" src="../assets/video/6_final-app-on-pc.mp4" loop autoplay muted controls></video>
+
+        <h2>Conclusion and GitHub Link</h2>
+        <p>So this is how you can create an email validator using HTML, CSS, JavaScript and <a href="https://emailvalidation.io/">Email Validation</a> API. For your convenience, I have added this code to <a href="https://github.com/CodeWithHarry/email-validator">GitHub</a>. Feel free to fork it and make the necessary changes. Pull requests are welcome!</p>
+        <p>I hope you liked this email validator we created using HTML, CSS, and JavaScript. Check out this Currency Converter Project where we created a <a href="https://www.codewithharry.com/blogpost/build-currency-converter-html-css-javascript/">Currency converter using HTML,</a><a href="https://www.codewithharry.com/blogpost/build-currency-converter-html-css-javascript/">CSS and JavaScript.</a> Hope you have learnt something new. Happy Coding!</p>
+    </section>
+</body>
+
+</html>

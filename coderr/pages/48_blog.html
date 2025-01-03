@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Cheatsheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>C++ Cheatsheet</h1>
+        <h2>Basics</h2>
+        <p>Basic syntax and functions from the C++ programming language.</p>
+        <h3>Boilerplate</h3>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+            
+int main() {
+cout &lt;&lt; "Welcome To CodeWithHarry";
+return 0;
+}</pre>
+
+        <h3>cout &lt;&lt;</h3>
+        <p>It prints output on the screen used with the insertion operator</p>
+        <pre>cout &lt;&lt; "This is C++ Programming";</pre>
+
+        <h3>cin &gt;&gt;</h3>
+        <p>It takes input from the user used with the extraction operator</p>
+        <pre>cin &gt;&gt; variable_name;</pre>
+
+        <h2>Data types</h2>
+        <p>The data type is the type of data</p>
+
+        <h3>Character type</h3>
+        <p>Typically a single octet(one byte). It is an integer type</p>
+        <pre>char variable_name;</pre>
+
+        <h3>Integer type</h3>
+        <p>The most natural size of integer for the machine</p>
+        <pre>int variable_name;</pre>
+
+        <h3>Float type</h3>
+        <p>A single-precision floating-point value</p>
+        <pre>float variable_name;</pre>
+
+        <h3>Double type</h3>
+        <p>A double-precision floating-point value</p>
+        <pre>double variable_name;</pre>
+    
+        <h3>Void type</h3>
+        <p>Represents the absence of the type</p>
+        <pre>void</pre>
+
+        <h3>Boolean type</h3>
+        <pre>bool</pre>
+
+        <h2>Escape Sequences</h2>
+        <p>It is a sequence of characters starting with a backslash, and it doesn't represent itself when used inside string literal.</p>
+
+        <h3>Alarm or Beep</h3>
+        <p>It produces a beep sound</p>
+        <pre>cout&lt;&lt;"\a";</pre>
+
+        <h3>Backspace</h3>
+        <p>It adds a backspace</p>
+        <pre>cout&lt;&lt;"\b";</pre>
+
+        <h3>Form feed</h3>
+        <pre>cout&lt;&lt;"\f";</pre>
+
+        <h3>Newline</h3>
+        <p>Newline Character</p>
+        <pre>cout&lt;&lt;"\n";</pre>
+
+        <h3>Carriage return</h3>
+        <pre>cout&lt;&lt;"\r";</pre>
+
+        <h3>Tab</h3>
+        <p>It gives a tab space</p>
+        <pre>cout&lt;&lt;"\t";</pre>
+
+        <h3>Backslash</h3>
+        <p>It adds a backslash</p>
+        <pre>cout&lt;&lt;"\\";</pre>
+
+        <h3>Single quote</h3>
+        <p>It adds a single quotation mark</p>
+        <pre>cout&lt;&lt;"\";</pre>
+
+        <h3>Question mark</h3>
+        <p>It adds a question mark</p>
+        <pre>cout&lt;&lt;"\?";</pre>
+
+        <h3>Octal No.</h3>
+        <p>It represents the value of an octal number</p>
+        <pre>cout&lt;&lt;"\nnn";</pre>
+
+        <h3>Hexadecimal No.</h3>
+        <p>It represents the value of a hexadecimal number</p>
+        <pre>cout&lt;&lt;"\xhh";</pre>
+
+        <h3>Null</h3>
+        <p>The null character is usually used to terminate a string</p>
+        <pre>cout&lt;&lt;"\0";</pre>
+
+        <h2>Comments</h2>
+        <p>A comment is a code that is not executed by the compiler, and the programmer uses it to keep track of the code.</p>
+
+        <h3>Single line comment</h3>
+        <pre>// It's a single line comment</pre>
+
+        <h3>Multi-line comment</h3>
+        <pre>
+/* It's a 
+multi-line
+comment
+*/</pre>
+        
+        <h2>Strings</h2>
+        <p>It is a collection of characters surrounded by double quotes</p>
+
+        <h3>Declaring String</h3>
+        <pre>
+// Include the string library
+#include &lt;string&gt;
+            
+// String variable
+string variable1 = "Hello World";           
+</pre>
+
+        <h3>append function</h3>
+        <p>It is used to concatenate two strings</p>
+        <pre>
+string firstName = "Harry ";
+string lastName = "Bhai";
+string fullName = firstName.append(lastName);
+cout &lt;&lt; fullName;
+</pre>
+
+        <h3>length function</h3>
+        <p>It returns the length of the string</p>
+        <pre>
+string variable1 = "CodeWithHarry";
+cout &lt;&lt; "The length of the string is: " &lt;&lt; variable1.length();
+</pre>
+
+        <h3>Accessing and changing string characters</h3>
+        <pre>
+string variable1 = "Hello World";
+variable1[1] = 'i';
+cout &lt;&lt; variable1;
+</pre>
+
+        <h2>Maths</h2>
+        <p>C++ provides some built-in math functions that help the programmer to perform mathematical operations efficiently.</p>
+
+        <h3>max function</h3>
+        <p>It returns the larger value among the two</p>
+        <pre>cout &lt;&lt; max(25, 140);</pre>
+
+        <h3>min function</h3>
+        <p>It returns the smaller value among the two</p>
+        <pre>cout &lt;&lt; min(55, 50);</pre>
+
+        <h3>sqrt function</h3>
+        <p>It returns the square root of a supplied number</p>
+        <pre>
+#include &lt;cmath&gt;
+
+cout &lt;&lt; sqrt(144);
+</pre>
+
+        <h3>ceil function</h3>
+        <p>It returns the value of x rounded up to its nearest integer</p>
+        <pre>double a=ceil(1.9);</pre>
+
+        <h3>floor function</h3>
+        <p>It returns the value of x rounded down to its nearest integer</p>
+        <pre>double a=floor(1.02);</pre>
+
+        <h3>pow function</h3>
+        <p>It returns the value of x to the power of y</p>
+        <pre>int a=pow(x, y);</pre>
+
+        <h2>Decision Making Instructions</h2>
+        <p>Conditional statements are used to perform operations based on some condition.</p>
+
+        <h3>If Statement</h3>
+        <pre>
+if (condition) {
+// This block of code will get executed, if the condition is True
+}
+</pre>
+
+        <h3>If-else Statement</h3>
+        <pre>
+if (condition) {
+// If condition is True then this block will get executed
+} else {
+// If condition is False then this block will get executed
+}
+</pre>
+
+        <h3>if else-if Statement</h3>
+        <pre>
+if (condition) {
+// Statements;
+}
+else if (condition){
+// Statements;
+}
+else{
+// Statements
+}       
+</pre>
+
+        <h3>Ternary Operator</h3>
+        <p>It is shorthand of an if-else statement.</p>
+        <pre>variable = (condition) ? expressionTrue : expressionFalse;</pre>
+
+        <h3>Switch Case Statement</h3>
+        <p>It allows a variable to be tested for equality against a list of values (cases).</p>
+        <pre>
+switch (expression) 
+{
+case constant-expression: 
+statement1;
+statement2;
+break;
+case constant-expression: 
+statement;
+break;
+...
+default: 
+statement;
+}
+</pre>
+
+        <h2>Iterative Statements</h2>
+        <p>Iterative statements facilitate programmers to execute any block of code lines repeatedly and can be controlled as per conditions added by the programmer.</p>
+
+        <h3>while Loop</h3>
+        <p>It iterates the block of code as long as a specified condition is True</p>
+        <pre>
+while (/* condition */)
+{
+/* code block to be executed */
+} 
+</pre>
+
+        <h3>do-while loop</h3>
+        <p>It is an exit controlled loop. It is very similar to the while loop with one difference, i.e., the body of the do-while loop is executed at least once even if the condition is False</p>
+        <pre>
+do
+{
+/* code */
+} while (/* condition */);
+</pre>
+
+        <h3>for loop</h3>
+        <p>It is used to iterate the statements or a part of the program several times. It is frequently used to traverse the data structures like the array and linked list.</p>
+        <pre>
+for (int i = 0; i &lt; count; i++)
+{
+/* code */
+}
+</pre>
+
+        <h3>Break Statement</h3>
+        <p>break keyword inside the loop is used to terminate the loop</p>
+        <pre>break;</pre>
+
+        <h3>Continue Statement</h3>
+        <p>continue keyword skips the rest of the current iteration of the loop and returns to the starting point of the loop</p>
+        <pre>continue;</pre>
+
+        <h2>References</h2>
+        <p>Reference is an alias for an already existing variable. Once it is initialized to a variable, it cannot be changed to refer to another variable. So, it's a const pointer.</p>
+
+        <h3>Creating References</h3>
+        <pre>
+string var1 = "Value1"; // var1 variable
+string &var2 = var1; // reference to var1
+</pre>
+
+        <h3>Pointers</h3>
+        <p>Pointer is a variable that holds the memory address of another variable</p>
+
+        <h3>Declaration</h3>
+        <pre>
+datatype *var_name; 
+
+var_name = &variable2;           
+</pre>
+
+        <h2>Functions & Recursion</h2>
+        <p>Functions are used to divide an extensive program into smaller pieces. It can be called multiple times to provide reusability and modularity to the C program.</p>
+
+        <h3>Function Definition</h3>
+        <pre>
+return_type function_name(data_type parameter...){ 
+//code to be executed 
+}
+</pre>
+
+        <h3>Function Call</h3>
+        <pre>function_name(arguments);</pre>
+
+        <h3>Recursion</h3>
+        <p>Recursion is when a function calls a copy of itself to work on a minor problem. And the function that calls itself is known as the Recursive function.</p>
+        <pre>
+void recurse()
+{
+... .. ...
+recurse();
+... .. ...
+}
+</pre>
+
+        <h2>Object-Oriented Programming</h2>
+        <p>It is a programming approach that primarily focuses on using objects and classes. The objects can be any real-world entities.</p>
+
+        <h3>class</h3>
+        <pre>
+class Class_name {
+public: // Access specifier
+// fields
+// functions
+// blocks
+};
+</pre>
+
+        <h3>object</h3>
+        <pre>Class_name ObjectName;</pre>
+
+        <h3>Constructors</h3>
+        <p>It is a special method that is called automatically as soon as the object is created.</p>
+        <pre>
+class className { // The class
+public: // Access specifier
+className() { // Constructor
+cout &lt;&lt; "Code With Harry";
+}
+};
+                
+int main() {
+className obj_name; 
+return 0;
+}
+        </pre>
+
+        <h3>Encapsulation</h3>
+        <p>Data encapsulation is a mechanism of bundling the data, and the functions that use them and data abstraction is a mechanism of exposing only the interfaces and hiding the implementation details from the user.</p>
+        <pre>
+#include&lt;iostream&gt; 
+using namespace std; 
+class ExampleEncap{ 
+private: 
+/* Since we have marked these data members private, 
+* any entity outside this class cannot access these 
+* data members directly, they have to use getter and 
+* setter functions. 
+*/ 
+int num; 
+char ch; 
+public: 
+/* Getter functions to get the value of data members. 
+* Since these functions are public, they can be accessed 
+* outside the class, thus provide the access to data members 
+* through them 
+ */ 
+ int getNum() const { 
+return num; 
+ } 
+char getCh() const { 
+return ch; 
+} 
+/* Setter functions, they are called for assigning the values 
+* to the private data members. 
+*/ 
+void setNum(int num) { 
+this-&gt;num = num; 
+} 
+void setCh(char ch) { 
+this-&gt;ch = ch; 
+} 
+}; 
+int main(){ 
+ExampleEncap obj; 
+obj.setNum(100); 
+obj.setCh('A'); 
+cout&lt;&lt;obj.getNum()&lt;&lt;endl; 
+cout&lt;&lt;obj.getCh()&lt;&lt;endl; 
+return 0; 
+}
+        </pre>
+
+        <h2>File Handling</h2>
+        <p>File handling refers to reading or writing data from files. C provides some functions that allow us to manipulate data in the files.</p>
+
+        <h3>Creating and writing to a text file</h3>
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+    
+int main() {
+// Create and open a text file
+ofstream MyFile("filename.txt");
+    
+// Write to the file
+MyFile &lt;&lt; "File Handling in C++";
+    
+// Close the file
+MyFile.close();
+}
+</pre>
+
+        <h3>Reading the file</h3>
+        <p>It allows us to read the file line by line</p>
+        <pre>getline()</pre>
+
+        <h3>Opening a File</h3>
+        <p>It opens a file in the C++ program</p>
+        <pre>void open(const char* file_name,ios::openmode mode);</pre>
+
+        <h3>in</h3>
+        <p>Opens the file to read(default for ifstream)</p>
+        <pre>fs.open ("test.txt", std::fstream::in)</pre>
+
+        <h3>out</h3>
+        <p>Opens the file to write(default for ofstream)</p>
+        <pre>fs.open ("test.txt", std::fstream::out)</pre>
+
+        <h3>binary</h3>
+        <p>Opens the file in binary mode</p>
+        <pre>fs.open ("test.txt", std::fstream::binary)</pre>
+
+        <h3>app</h3>
+        <p>Opens the file and appends all the outputs at the end</p>
+        <pre>fs.open ("test.txt", std::fstream::app)</pre>
+
+        <h3>ate</h3>
+        <p>Opens the file and moves the control to the end of the file</p>
+        <pre>fs.open ("test.txt", std::fstream::ate)</pre>
+
+        <h3>trunc</h3>
+        <p>Removes the data in the existing file</p>
+        <pre>fs.open ("test.txt", std::fstream::trunc)</pre>
+
+        <h3>nocreate</h3>
+        <p>Opens the file only if it already exists</p>
+        <pre>fs.open ("test.txt", std::fstream::nocreate)</pre>
+
+        <h3>noreplace</h3>
+        <p>Opens the file only if it does not already exist</p>
+        <pre>fs.open ("test.txt", std::fstream::noreplace)</pre>
+
+        <h3>Closing a file</h3>
+        <p>It closes the file</p>
+        <pre>myfile.close()</pre>
+
+        <h2>Exception Handling</h2>
+        <p>An exception is an unusual condition that results in an interruption in the flow of the program.</p>
+
+        <h3>try and catch block</h3>
+        <p>A basic try-catch block in python. When the try block throws an error, the control goes to the except block</p>
+        <pre>
+try {
+// code to try
+throw exception; // If a problem arises, then throw an exception
+}
+catch () {
+// Block of code to handle errors
+}
+</pre>
+        <a href="path/to/your/cpp-cheatsheet.pdf" download>Download this Cheatsheet</a>
+    </section>
+</body>
+</html>

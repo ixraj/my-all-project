@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using TailwindCSS with Python Flask</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>Using TailwindCSS with Python Flask</h1>
+        <p>I use Tailwind CSS a lot and recently I integrated my flask app with TailwindCSS in the best possible way. Other online guides are mostly outdated, so here is how to exactly integrate Tailwind CSS with Flask.</p>
+        <p>Let's start with a minimal Flask app</p>
+
+        <h2>Step 1 - Setup a Flask app</h2>
+        <p>I am setting up a very basic Flask app and will be building on top of this later using Taliwind. Here is what my folder structure looks like:</p>
+        <img class="blog_15" src="../assets/images/15_folder-structure.png" alt="folder-structure">
+        <p>As you can see we have a static folder, a template folder, and an empty main.py file.</p>
+        <pre>
+flask_app_folder/
+├── main.py
+├── static
+└── templates</pre>
+        <p>I will go to the <a href="https://flask.palletsprojects.com/en/2.3.x/quickstart/">flask documentation</a> and get a minimal Flask app for integrating tailwind CSS. <br>
+        Here is what my main.py looks like now:</p>
+        <pre>
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return "&lt;p&gt;Hello, World!&lt;/p&gt;"
+
+
+app.run(debug=True)</pre>
+
+        <h2>Step 2 - Setup an npm project</h2>
+        <p>This step might sound strange but we need it to automatically compile our tailwind CSS files to make sure only the tailwind classes we are using are included in the output CSS file. </p>
+        <p>Let me show you step-by-step how to do it</p>
+        <p>Go to the <a href="https://nodejs.org/en/download/package-manager">nodejs website</a> and download and <a href="https://nodejs.org/en/download/package-manager">install node.js </a> for your machine. Node.js 12.13.0 or higher is required to use Tailwind CSS.</p>
+        <p>Run the following command in the node.js integrated terminal:</p>
+        <pre>npm init -y</pre>
+
+        <h2>Step 3 - Install and setup Tailwind CSS using npm</h2>
+        <p>Then install tailwind CSS using the following command:</p>
+        <pre>npm i tailwindcss</pre>
+        <p>Then run the following command to initialize tailwindcss</p>
+        <pre>enpx tailwindcss init</pre>
+        <p>You will see a success message like this:</p>
+        <pre>PS D:\Codewithharry.com\1. using flask with tailwind\flask-with-tailwind> npx tailwindcss init 
+
+Created Tailwind CSS config file: tailwind.config.js
+PS D:\Codewithharry.com\1. using flask with tailwind\flask-with-tailwind> </pre>
+
+        <p>This command automatically generates a tailwind.config.js file which contains important configuration for Tailwind CSS.</p>
+        <p>Please note that all the file paths mentioned in the blog, including the ones in <code>tailwind.config.js </code> and the Tailwind build command, are relative to the root directory of your project.</p>
+        <p>Change the content section of the file such that the final tailwind.config.js looks something like this:</p>
+        <pre>/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./templates/*.html"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}</pre>
+        <p>This tells Tailwind CSS to look for tailwind classes inside HTML files of the /templates folder.</p>
+
+        <h2>Step 4 - Create an input CSS file</h2>
+        <p>Let's now create a CSS file that will contain the base code of tailwind CSS. I am choosing to create this file inside "/static/css/input.css". <br>
+        This location is a matter of choice but if you are choosing this, the later commands must refer to this location as well. </p>
+        <p>Enter the following code inside input.css</p>
+        <pre>@tailwind base;
+@tailwind components;
+@tailwind utilities;</pre>
+        <p>At this point, our project looks something like this: </p>
+        <img class="blog_15" src="../assets/images/15_folder-structure-after-installation.png" alt="folder-structure-after-installation">
+
+        <h2>Step 5 - Start the build process</h2>
+        <p>We will now run a command that will take the input.css file as input and generate the output CSS which will only contain the tailwind classes required by our html files.</p>
+        <p>Open a new terminal and run this command:</p>
+        <pre>npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch</pre>
+        <p>This command tells tailwind to generate an output.css file which only contains the utility classes you have used inside the HTML files of your templates folder.</p>
+        <p>Now you can include file ./static/css/output.css by adding the below command in your HTML files</p>
+        <pre>&lt;link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet"&gt;</pre>
+
+        <h2>Step 6 - Test your project (optional)</h2>
+        <p>Let's test this configuration by creating a demo html file, index.html inside the templates directory which looks something like this:</p>
+        <pre>&lt;!-- File ./templates/index.html  --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="bg-red-600"&gt;
+        background is red
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        <p>Change your flask app (file main.py) to look something like this:</p>
+        <pre>from flask import Flask, render_template
+
+app = Flask(__name__)
+          
+@app.route("/")
+def hello_world():
+    return render_template("index.html")
+          
+          
+app.run(debug=True)</pre>
+        <p>Open a new terminal (keeping the other terminal running the tailwind command active) and run the following command to execute the flask app:</p>
+        <pre>python main.py</pre>
+        <p>Our page looks something like this:</p>
+        <img class="blog_15" src="../assets/images/15_final-blog-post.png" alt="final-blog-post">
+        <p>and our final folder structure looks something like this:</p>
+        <img class="blog_15" src="../assets/images/15_final-folder-structure.png" alt="final-folder-structure">
+        <p>If you look inside output.css, you will notice that only the tailwind classes used are included in the output.css which reduces the file size of output.css and improves performance drastically. <br>        
+        So instead of sending a full tailwind bundle of 3-4mb with all utility classes, we are including a file 10 KB file in our final build.</p>
+
+        <h2>Step 7 - Shortening the tailwind build command (optional)</h2>
+        <p>If you think typing the command "npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch" might be quite cumbersome, you can create an alias of this command by including a script called "buildcss" in your package.json like this:</p>
+
+        <h3>File package.json:</h3>
+        <pre>{
+  "name": "flask-with-tailwind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specifiedexit 1",
+    "buildcss": "npx tailwindcss -i ./statiinput.css -o ./static/css/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  "tailwindcss": "^3.3.3"
+  }
+}       </pre>
+        <p>Now you can easily run npm run buildcss as an alias of npx tailwindcss -i <code> ./static/css/input.css -o ./static/css/output.css --watch </code></p>
+        <p>Congratulations, you have successfully incorporated Tailwind CSS with your Flask app. You can now start using Tailwind CSS utility classes or know more about them in the <a href="https://tailwindcss.com/docs/installation">official Tailwind CSS documentation</a></p>
+        <p>Let me know your thoughts in the comments below. Happy Coding!</p>
+    </section>
+</body>
+</html>

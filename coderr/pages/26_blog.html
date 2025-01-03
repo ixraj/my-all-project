@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to get free https on your site using Let's Encrypt SSL on Ubuntu 20.04</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>How to get free https on your site using Let's Encrypt SSL on Ubuntu 20.04</h1>
+        <p>Have you ever seen that green padlock at the top in the URL bar which reads "Connection is secure"? In this post, we will discuss how to enable HTTPS for your website hosted on ubuntu 20.04. We will use let's encrypt for this purpose which is a non-profit certificate authority used to get SSL certificates for your website. </p>
+        <p>Not only that we can use certbot to automatically renew these certificates which makes it a one-time task for a single domain.</p>
+        <p>We will assume that you already have a domain pointed to the IP address of your VPS. Follow the steps below:</p>
+
+        <h2>Step 1 - Install lets encrypt</h2>
+        <p>Execute the following commands to install let's encrypt on ubuntu:</p>
+        <pre>sudo apt install certbot python3-certbot-apache</pre>
+        <img class="blog_26" src="../assets/images/26_1.webp" alt="image-1">
+
+        <h2>Step 2 - Allow HTTPS through the firewall and configure Apache2 virtual hosts</h2>
+        <p>If you are using Apache, enter the following commands to allow Apache2 over the firewall:</p>
+        <pre>sudo ufw allow 'Apache Full'</pre>
+
+        <h2>Step 3 - Obtain an SSL certificate</h2>
+        <p>Run the following command to obtain an SSL certificate:</p>
+        <pre>sudo certbot --apache</pre>
+        <img class="blog_26" src="../assets/images/26_2.webp" alt="image-2">
+        <p>This command shows you some prompts and finally installs an SSL certificate on the domain of your choice.</p>
+        <img class="blog_26" src="../assets/images/26_3.webp" alt="image-3">
+
+        <h2>Step 4 - Test the auto-renewal process</h2>
+        <p>Certbot, by default, takes care of the auto-renewal process for your SSL certificate. You can test the auto-renewal of your SSL certificate by running the following command:</p>
+        <pre>sudo systemctl status certbot.timer</pre>
+        <p>You can even do a dry run of the auto-renewal by using this command:</p>
+        <pre>sudo certbot renew --dry-run</pre>
+        <p>Hope this guide was helpful for you to install an SSL certificate on your server. Happy coding!</p>
+    </section>
+</body>
+</html>

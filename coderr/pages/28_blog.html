@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Host Multiple Websites on Ubuntu VPS?</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>How to Host Multiple Websites on Ubuntu VPS?</h1>
+        <p>An apache2 web server provides robustness and scalability for hosting multiple websites on your Ubuntu VPS. This means you can utilize the power of your VPS hardware without any downtime on your website.</p>
+        <p>We can configure apache2 to host multiple websites on the same VPS. To achieve this using apache, we create virtual hosts corresponding to each domain or individual site. A virtual host is a way to direct traffic corresponding to an IP to a specific directory on our VPS. This way we will be able to host multiple websites on a single Ubuntu server.</p>
+
+        <h2>How to setup a virtual host in apache2</h2>
+        <p>If you haven't already installed apache2, you can do so by entering the below command in the ubuntu terminal</p>
+        <pre>sudo apt install apache2</pre>
+        <img class="blog_28" src="../assets/images/28_1.webp" alt="image-1">
+        <p>Assuming you have apache2 installed on your machine, all you need to do now is to follow the steps outlined in the next section to host multiple websites. For the sake of this tutorial, I will assume that we have to host 2 websites codewithharry.com and programmingwithharry.com on our ubuntu VPS. We will point the domains to the IP address of our droplets. Here is how A record is set up in GoDaddy.</p>
+        <img class="blog_28" src="../assets/images/28_7.webp" alt="image-2">
+        <p>The process is pretty similar for other domain providers <br>
+        Let's set up our virtual hosts now</p>
+
+        <h3>Step 1 - Creating Directories for individual sites</h3>
+        <p>Let's create individual directories to store the contents of codewithharry.com and programmingwithharry.com. Execute the commands below to create these directories inside the /var/www folder</p>
+        <pre>sudo mkdir -p /var/www/codewithharry.com/
+sudo mkdir -p /var/www/programmingwithharry.com/</pre>
+        <img class="blog_28" src="../assets/images/28_2.webp" alt="image-3">
+        <p>Once the codewithharry.com.conf file is created. paste the below contents inside it</p>
+        <pre>&lt;VirtualHost *:80&gt;
+    ServerName codewithharry.com
+    ServerAdmin yourPublicEmail@email.com
+    DocumentRoot /var/www/codewithharry.com
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;</pre>
+        <img class="blog_28" src="../assets/images/28_3.webp" alt="image-4">
+        <p>Repeat the same for programmingwithharry.com by executing the command below:
+        <pre> vim /etc/apache2/sites-available/programmingwithharry.com.conf</pre>
+        and paste the below contents:</p>
+
+        <h3>Step 4 - Enable the VirtualHosts</h3>
+        <p>In order for these virtual host files to function correctly, we need to enable them. <br>
+        Enter the directory where we have created virtual hosts:</p>
+        <pre>cd /etc/apache2/sites-available/</pre>
+        <img class="blog_28" src="../assets/images/28_5.webp" alt="image-5">
+        <p>Execute the following commands to enable the virtual hosts:</p>
+        <pre>sudo a2ensite codewithharry.com.conf
+sudo a2ensite programmingwithharry.com.conf</pre>
+        <p>Finally, you will have to restart the apache server:</p>
+        <pre>sudo service apache2 restart</pre>
+        <img class="blog_28" src="../assets/images/28_6.webp" alt="image-6">
+
+        <h3>Step 5 - Test the configuration</h3>
+        <p>Test the configuration of these virtual hosts by visiting your domains. You can configure as many virtual hosts as you want for your domains and this technique can help you power many websites on a single VPS.</p>
+        <p>Hope this will help you host your websites and save some money on VPS. Happy Coding!</p>
+    </section>
+</body>
+</html>

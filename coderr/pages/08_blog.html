@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Check if Keys Exist in JavaScript Objects</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <section>
+        <h1>How to Check if Keys Exist in JavaScript Objects</h1>
+        <p>Below are two popular methods of checking if a given key exists in a JavaScript object, along with code examples to provide a deeper understanding.</p>
+
+        <h2>Method 1: Using the 'in' Operator</h2>
+        <p>The 'in' operator returns a boolean value, <code>true</code> if the specified property is in the object or its prototype chain, and <code>false</code> if not.</p>
+
+        <h3>Syntax:</h3>
+        <pre>if (key in object) {
+    // code
+}</pre>
+        <p>Example:</p>
+        <pre>const car = { make: 'Toyota', model: 'Camry' };
+
+if ('make' in car) {
+    console.log('Property exists!');
+} else {
+    console.log('Property does not exist.');
+}
+// Output: Property exists!</pre>
+        <p>Note that the 'in' operator will return <code>true</code> if the property exists in the object's prototype chain as well, not just in the object itself.</p>
+
+        <h2>Method 2: Using the hasOwnProperty() Method</h2>
+        <p>In my opinion, this is a better way. The <code>hasOwnProperty()</code> method returns a boolean value indicating whether the object has the specified property as its own property. Unlike the 'in' operator, it doesn't check the prototype chain, which is a good thing.</p>
+
+        <h3>Syntax:</h3>
+        <pre>object.hasOwnProperty(propertyName)</pre>
+
+        <h3>Example:</h3>
+        <pre>const person = { name: 'John', age: 30 };
+
+if (person.hasOwnProperty('age')) {
+    console.log('Property exists!');
+} else {
+    console.log('Property does not exist.');
+}
+// Output: Property exists!</pre>
+        <p>This method is often preferred when you need to ensure that the property is not inherited from the prototype chain.</p>
+
+        <h3>Conclusion</h3>
+        <p>Both the 'in' operator and <code>hasOwnProperty()</code> method are valuable tools in a JavaScript developer's toolkit. Depending on your specific use case and whether or not you want to check the prototype chain, you can choose the method that best fits your needs.</p>
+        <ul>
+            <li>Use the 'in' operator when you want to check for the existence of a property either in the object itself or its prototype chain.</li>
+            <li>Use the <code>hasOwnProperty()</code> method when you want to ensure that the property is an own property of the object and not inherited.</li>
+        </ul>
+        <p>Hope that was useful for the fellow JavaScript developers out there. Let me know if you have any questions. Happy Coding!</p>
+    </section>
+</body>
+</html>

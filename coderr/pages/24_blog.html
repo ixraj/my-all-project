@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installing phpMyAdmin and adding password authentication to MySQL on Ubuntu</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <section>
+        <h1>Installing phpMyAdmin and adding password authentication to MySQL on Ubuntu</h1>
+        <p>In this video, we will see how to install and secure phpMyAdmin on Ubuntu 20.04. phpMyAdmin was created to easily interact with MySQL databases using a web-based interface. I will assume that you have configured a non-root user on your ubuntu machine and installed the lamp stack. <br> 
+        We will also see how to enable password authentication on MySQL which supports socket-based authentication by default.</p>
+
+        <h2>Step 1 - Installing PHPMyAdmin</h2>
+        <p>Let's update our server's package index</p>
+        <pre>sudo apt update</pre>
+        <img class="blog_24" src="../assets/images/24_1.webp" alt="image-1">
+        <p>Run the following command to install phpMyAdmin and related packages</p>
+        <pre>sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl</pre>
+        <p>Using this command we installed the following packages:</p>
+        <ul>
+            <li>php-mbstring: A module for managing non-ASCII strings with different encodings</li>
+            <li>php-zip: An extension that facilitates uploading .zip files to phpMyAdmin</li>
+            <li>php-gd: Enables support for GD graphics library</li>
+            <li>php-json: Provides support for JSON serialization</li>
+            <li>php-curl: Allows PHP to communicate with other servers</li>
+        </ul>
+        <p>While installing PHPMyAdmin you will see a prompt that will ask you to select the webserver. Press &lt;Spacebar&gt; &lt;Tab&gt; and then enter key to continue the installation.</p>
+        <img class="blog_24" src="../assets/images/24_2.webp" alt="image-2">
+        <p>You will also be asked to continue with dbconfig-common setup. Press enter to confirm.</p>
+        <img class="blog_24" src="../assets/images/24_3.webp" alt="image-3">
+        <p>Finally, choose and confirm a strong password for PHPMyAdmin. If you get a prompt asking for the services which need to be restarted, simply press the "tab" and then "enter" key to continue. Phpmyadmin is now installed on your Ubuntu server</p>
+
+        <h2>Step 2 - Configuring password access in MySQL</h2>
+        <p>to use MySQL we need to enable password login in MySQL. enter the following command to launch the MySQL console:</p>
+        <pre>sudo mysql</pre>
+        <img class="blog_24" src="../assets/images/24_4a.webp" alt="image-4">
+        <p>Now enter the following query to enable password authentication in MySQL</p>
+        <pre>ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'MyStrongPassword1234$';</pre>
+        <img class="blog_24" src="../assets/images/24_5.webp" alt="image-5">
+        <p>Please make sure you choose your own password and not the one which I chose<br>
+        ('MyStrongPassword1234$') <br>
+        You can always check the authentication method used by using the following MySQL query:</p>
+        <pre>SELECT user,authentication_string,plugin,host FROM mysql.user;</pre>
+        <p>Exit from the MySQL console by typing exit. <br>
+        Now you can log in using your MySQL password by entering the following command to the MySQL console</p>
+        <pre>sudo mysql -u root -p</pre>
+
+        <h2>Step 3 - Configuring a non-root user in MySQL</h2>
+        <p>Since its not a good idea to use root as your login user, we will create another MySQL user named harry to login to the PHPMyAdmin console: <br>
+        Execute the following query:</p>
+        <pre>CREATE USER 'harry'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'MyStrongPassword1234$';</pre>
+        <p>This creates a user named harry with the password - 'MyStrongPassword1234$' <br>
+        Let's provide this user all the privileges so that we can use it to access the PHPMyAdmin console. Execute the query below</p>
+        <pre>GRANT ALL PRIVILEGES ON *.* TO 'harry'@'localhost' WITH GRANT OPTION;</pre>
+        <p>You can now exit the MySQL shell:</p>
+        <pre>exit</pre>
+
+        <h2>Step 4 - Accessing phpMyAdmin</h2>
+        <p>Go to the browser and type 'http://your_domain_or_IP/phpmyadmin' in your URL bar. You will see an option to log into your PHPMyAdmin console. Enter the username (harry in my case) and password you chose for this user.</p>
+        <img class="blog_24" src="../assets/images/24_6.webp" alt="image-6">
+        <p>You will be logged in to PHPMyAdmin.</p>
+        <img class="blog_24" src="../assets/images/24_6.webp" alt="image-7">
+        <p>Enjoy managing your MySQL databases with ease and security. Happy coding!</p>
+    </section>
+</body>
+</html>
